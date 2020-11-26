@@ -14,6 +14,9 @@ GOALS of this Project; <br>
  ~~ability to name character~~  <br>
  ~~choose different character cards~~  <br>
  ~~A market where you can buy equipment~~  <br>
+ ~~ability to discard items~~  <br>
+ ~~sort out the health bonus and max health systems~~  <br>
+ ~~preview items in popup before purchase or discard~~  <br>
  ~~inventory system that prevents dual weilding two handed weapons~~  <br>
  ~~inventory system that prevents dual weilding shields~~  <br>
  ~~Skill cards that apply to battle calculations~~  <br>
