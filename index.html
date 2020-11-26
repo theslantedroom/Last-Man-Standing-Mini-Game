@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>LAST MAN STANDING</title>
+	<link rel="icon" href="img/profile2.jpg">
+	<!-- css Animate -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+		<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/LMS.css">
+</head>
+
+<div style="text-align: center;">
+	<h3>Battle # <span id='battleTop'></span>. You have <span id="goldTop" style="color: yellow;"></span></h3>
+</div>
+<body>
+
+	<div id="characterCreation">
+		<h1>Last Man Standing - Alpha Testing</h1>
+		<h4>Mobile Mini Game - V1.01 In Development - regular updates </h4>
+		<div id="nameConfirm">
+			<label class="tooltip" for="player1NameInput">Name:  <span class="tooltiptext">Give Yourself a cool name!</span></label>
+			<input id="player1NameInput" type="text" placeholder="enter a name"><button id="nameConfirmButton" onclick="nameToPlayer1Card()">confirm</button>
+		</div>
+
+		<h5>&#8678; Choose a Character &#8680;</h5>
+
+		<div id="chooseCharacter">
+			<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
+			<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
+		</div>	
+
+		
+		<h2>You have <span id='player1Gold2'></span> Gold</h2>
+		<p>Visit the Market to buy some gear before you begin</p>
+		<button id="gotoMarket" onclick="openMarket()">Continue to MARKET</button><br>
+
+		
+	</div>
+
+
+<div id="market">
+	<div>
+		<h1>MARKET</h1> 
+		<div>
+			<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
+			<button id="weaponStoreTwoHandButton" onclick="weaponStoreTwoHandButton()">Two Handed</button>
+			<button id="weaponStoreRangedButton" onclick="weaponStoreRangedButton()">Ranged</button>
+			<button id="weaponStoreShieldButton" onclick="weaponStoreShieldButton()">Shield</button>
+			<button id="armorStoreButton" onclick="armorStoreButton()">Armor</button>
+			<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
+		</div>
+
+		<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
+		<p>I don't do refunds on gear under any circumstance. You will discard replaced gear.</p>
+		<button id="closeCharacterCreation">I'm Ready! Leave the market</button>
+		<h2>You have <span id="player1Gold"></span> gold.</h2>
+	</div>
+
+<div id="marketItems">
+		<div id="confirmBuyWindow">
+			<p><span id="wantToBuy">x</span><span id="wantToBuyGoldCost">x</span></p>
+			<div>				
+				<button id="okBuyRightButton">Buy for right hand</button>
+				<button id="okBuyLeftButton">Buy for left hand</button>	
+			</div>
+			<div id="confirmBuyButtons">
+				<button id="okBuyTwoHanded">Buy two handed Weapon</button>
+				<button id="okBuyHealth">Buy Health Training</button>
+				<button id="okBuyDamage">Buy Damage Training</button>
+				<button id="okBuyAttack">Buy Attack Training</button>
+				<button id="okBuyDefense">Buy Defense Training</button>
+				<button id="okBuyArmor">Buy Armor</button>			
+
+				<div id="buyPreview"></div>
+				<button id="cancelBuyButton">cancel</button>
+			</div>
+		</div>
+
+		<div id="confirmDiscardWindow">
+			<p>Are you sure you want to discard this item? You will not recieve and refund.</p>
+			
+			<button id="discardButtonRightHand">YES discard this item</button>
+			<button id="discardButtonArmor">YES discard this item</button>
+			<button id="discardButtonHealth">YES discard this item</button>
+			<button id="discardButtonDamage">YES discard this item</button>
+			<button id="discardButtonAttack">YES discard this item</button>
+			<button id="discardButtonDefense">YES discard this item</button>
+			<button id="discardButtonLeftHand">YES discard this item</button>
+			<div id="discardPreview"></div>
+			<button id="cancelDiscardButton">cancel - DO NOT DISCARD</button>
+
+		</div><!-- CONFIRM BUY DISCARD -->
+
+
+
+	<div id="storeImages">
+		<div class="storeItems" id="storeItemsOnehandWeapons">
+			<div class="floatLeft" id="oneHandedA">
+					<img src="img/market/w1.jpg" alt="">
+					<img src="img/market/w2.jpg" alt="">
+					<img src="img/market/w3.jpg" alt="">
+					<img src="img/market/w4.jpg" alt="">
+					<img src="img/market/w5.jpg" alt="">		
+			</div><br>
+			<div class="floatRight" id="oneHandedB">
+					<img src="img/market/w6.jpg" alt="">
+					<img src="img/market/w7.jpg" alt="">
+					<img src="img/market/w8.jpg" alt="">
+					<img src="img/market/w9.jpg" alt="">
+					<img src="img/market/w10.jpg" alt="">
+			</div>
+		</div>	
+		<div class="storeItems" id="storeItemsTwoHanded">
+			<div class="floatLeft" id="twoHanded">
+					<img src="img/market/w21.jpg" alt="">
+					<img src="img/market/w22.jpg" alt="">
+					<img src="img/market/w23.jpg" alt="">
+					<img src="img/market/w24.jpg" alt="">
+					<img src="img/market/w25.jpg" alt="">
+			</div>
+			<div class="floatRight" id="spears">
+					<img src="img/market/w26.jpg" alt="">
+					<img src="img/market/w27.jpg" alt="">
+					<img src="img/market/w28.jpg" alt="">
+					<img src="img/market/w29.jpg" alt="">
+					<img src="img/market/w30.jpg" alt="">
+			</div>
+		</div>
+		<div class="storeItems" id="storeItemsRanged">
+			<div class="floatLeft" id="crossbows">				
+					<img src="img/market/w31.jpg" alt="">
+					<img src="img/market/w32.jpg" alt="">
+					<img src="img/market/w33.jpg" alt="">
+					<img src="img/market/w34.jpg" alt="">
+					<img src="img/market/w35.jpg" alt="">
+			</div>
+			<div class="floatRight" id="bows">					
+					<img src="img/market/w36.jpg" alt="">
+					<img src="img/market/w37.jpg" alt="">
+					<img src="img/market/w38.jpg" alt="">
+					<img src="img/market/w39.jpg" alt="">
+					<img src="img/market/w40.jpg" alt="">
+			</div>
+		</div>	
+		<div class="storeItems" id="storeItemsShields">
+			<div class="floatLeft" id="shieldsA">
+					<img src="img/market/w11.jpg" alt="">
+					<img src="img/market/w12.jpg" alt="">
+					<img src="img/market/w13.jpg" alt="">
+					<img src="img/market/w14.jpg" alt="">
+					<img src="img/market/w15.jpg" alt="">
+			</div>
+			<div class="floatRight" id="shieldsB">
+					<img src="img/market/w16.jpg" alt="">
+					<img src="img/market/w17.jpg" alt="">
+					<img src="img/market/w18.jpg" alt="">
+					<img src="img/market/w19.jpg" alt="">
+					<img src="img/market/w20.jpg" alt="">	
+			</div>
+		</div>
+		<div class="storeItems" id="storeItemsArmor">
+			<div class="floatLeft" id="armorA">
+					<img src="img/market/a1.jpg" alt="">
+					<img src="img/market/a2.jpg" alt="">
+					<img src="img/market/a3.jpg" alt="">
+					<img src="img/market/a4.jpg" alt="">
+					<img src="img/market/a5.jpg" alt="">
+					<img src="img/market/a6.jpg" alt="">
+					<img src="img/market/a7.jpg" alt="">
+			</div>
+			<div class="floatRight" id="armorB">
+					<img src="img/market/a8.jpg" alt="">
+					<img src="img/market/a9.jpg" alt="">
+					<img src="img/market/a10.jpg" alt="">
+					<img src="img/market/a11.jpg" alt="">
+					<img src="img/market/a12.jpg" alt="">
+					<img src="img/market/a13.jpg" alt="">
+					<img src="img/market/a14.jpg" alt="">					
+			</div>
+		</div>
+			<div class="storeItems" id="storeItemsTraining">
+				<div class="floatLeft" id="trainingA">
+						<img src="img/market/healthBonus01.jpg" alt="">
+						<img src="img/market/healthBonus02.jpg" alt="">
+						<img src="img/market/healthBonus03.jpg" alt="">
+						<img src="img/market/damageBonus1.jpg" alt="">
+						<img src="img/market/damageBonus2.jpg" alt="">
+						<img src="img/market/damageBonus3.jpg" alt="">		
+				</div>
+				<div class="floatRight" id="trainingB">
+						<img src="img/market/attackBonus1.jpg" alt="">
+						<img src="img/market/attackBonus2.jpg" alt="">
+						<img src="img/market/attackBonus3.jpg" alt="">
+						<img src="img/market/defenseBonus1.jpg" alt="">
+						<img src="img/market/defenseBonus2.jpg" alt="">
+						<img src="img/market/defenseBonus3.jpg" alt="">	
+				</div>
+		</div>
+
+		</div>
+			<div id="marketCharShift">
+					<div id="player1AtMarket"></div>
+					<button id="buyHealing">Rest and Heal for <span id="healCost">...</span> gold?</button>
+					<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
+			</div>
+	</div>
+
+<!-- BACK BUTTON HIDDEN -->
+<!-- 	<p onclick="closeMarket()" id="closeMarket"></p> -->
+</div>
+
+<div id="playArea">
+	<div id="player1CharCard">
+			<div id="player1HealthCounter"><span id="player1CurrentHp"></span><span id="player1MaxHp"></span></div>
+			<div id="player1DefenseCounter"></div>
+			<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
+			<div id="player1Weapon2Card" onclick="discardWeaponL()"></div>
+			<div id="player1ArmorCard" onclick="discardArmor()"></div>
+			<div id="player1HealthCard" onclick="discardHealth()"></div>
+			<div id="player1DamageCard" onclick="discardDamage()"></div>
+			<div id="player1AttackCard" onclick="discardAttack()"></div>
+			<div id="player1DefenseCard" onclick="discardDefense()"></div>
+			<div id="popUpOuch"></div>
+	</div>	
+		<!-- Enemy Card -->
+	<div id="enemy1Idle">
+		<div id="enemyHealthCounter"></div>
+		<div id="popUpEnemy1Dead"></div>
+		<div id="popUpHitEnemy"></div>
+	</div>
+</div>
+
+<!-- roll -->
+
+<div id="rollBar">
+
+		<div id="slideStart">
+			<div class="lighter"><h5>Attack roll is a 20 sided Dice (1D20) and must be > enemy 'Defense Total' to deal your weapons damage</h5></div>
+			<div><p>You will find more gold after defeating each enemy</p></div>
+			<div><p>You can upgrade your equipment at the Market after battle. <br>
+			Fight through the 34 enemies to reach the Boss to win! Good Luck.</p></div>
+			<div class=""><button onclick="start()">READY</button></div>
+		</div>
+
+
+		<div id="slidePlayer1Turn">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>You stand ready..</p></div>
+			<div class=""><button onclick="player1AttackRoll()">ATTACK</button></div>
+		</div>
+
+		<div id="slidePlayer1Hit">
+			<div class="lighter"><p id="player1DamageAttackRoll"></p></div>
+			<div><p style="color: red">you hit</p></div>
+			<div><p>Roll your damage</p></div>
+			<div class=""><button onclick="player1Damage()">Deal Damage</button></div>
+				<div id="hitPopupCard">
+					<div class="animate__animated animate__bounceIn" id="hitPopUp"></div>
+				</div>
+		</div>
+
+		<div id="slidePlayer1Critical">
+			<div class="lighter"><p>You Rolled 20!</p></div>
+			<div><p style="color: red">CRITICAL HIT!</p></div>
+			<div><p>Roll for double damage</p></div>
+			<div class=""><button onclick="player1Critical()">Deal Critical Damage</button></div>
+				<div id="critPopupCard">
+					<div class="animate__animated animate__bounceIn" id="critPopUp"></div>
+				</div>
+		</div>
+
+		<div id="slideLogSlide">
+			<div class="lighter"><p id="rollResult">....</p> </div>
+			<div><p id="resultLine2">....</p></div>
+			<div><p id="resultLine3">....</p></div>
+			<div class=""><button onclick="logSlide()">continue to enemy turn...</button></div>
+				<div id="logWeaponPopupCard">
+					<div class="animate__animated animate__rubberBand" id="logWeapon1PopUp"></div>
+					<div class="animate__animated animate__rubberBand" id="logWeapon2PopUp"></div>
+				</div>
+		</div>
+
+		<div id="slideLogSlideE">
+			<div class="lighter"><p id="rollResultE">...</p> </div>
+			<div><p id="resultLine2E">....</p></div>
+			<div><p id="resultLine3E">....loge.</p></div>
+			<div class=""><button onclick="logSlideE()">continue to your turn...</button></div>
+		</div>
+
+
+		<div id="slideEnemy1Turn">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p style="color: red">The enemy attacks</p></div>
+			<div><button style="color: red" onclick="enemyAttack()">Brace your self</button></div>
+		</div>
+
+		<div id="slideKillLog">
+			<div class="lighter"><p id="damageRollResultK">...</p> </div>
+			<div><p id="damageResultLine2K">....</p></div>
+			<div><p id="damageResultLine3K">....</p></div>
+			<div class=""><button onclick="nextEnemy()">Search remains...</button></div>
+		</div>
+
+		<div id="slideNextEnemy">
+			<p>Searching the body you find <span id="foundGold">x gold</span> gold.</p>
+			<button onclick="openMarket()">Go to Market</button>
+			<p>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
+			<button onclick="fightNext()">READY for next enemy</button>
+			
+		</div>
+
+	
+		
+		<div id="slidePlayer1Dead">
+		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathCountPopup"></span> times</p>
+		<p>Kill Count = <span id="finalScorePopup"></span></p>
+		</div>
+
+</div>
+
+
+<table id="table">
+			  <tr>
+			  	<th id="player1Name"></th>
+			    <th></th>
+			    <th></th>
+			    <th></th>
+			    <th id=""></th>
+			  </tr>
+		
+
+			   <tr>
+			    <td>Kills</td>
+			    <td id="tableKillScore"></td>
+				<td id="">Gold</td>
+				<td id="player1GoldTable"></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Times Killed</td>
+			    <td id="tableDeathScore"></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			   <tr>
+			    <td>high Score</td>
+			    <td id="tableHighScore"></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Games played</td>
+			    <td id="tableGamesPlayed"></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+  			   <tr>
+			  	<td></td>
+			    <td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Strength Bonus</td>
+				<td id="player1.damageBonusSkill"></td>
+				<td id="">Weapon 1</td>
+				<td id="player1.weapon1"></td>
+				<td id="player1.weapon1Bonus"></td>
+			  </tr>
+
+			  <tr>
+			    <td>Attack Bonus</td>
+				<td id="player1.attackBonusSkill"></td>
+				<td id="">Weapon 2</td>
+				<td id="player1.weapon2"></td>
+				<td id="player1.weapon2Bonus"></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			</table>
+</body>
+
+
+<script src=js/LMS.js> </script>
+
+</html>
