@@ -1,5 +1,5 @@
 # Last-Man-Standing-Mini-Game
-A web version of my boardgame - Last Man Standing -Ported from a board game concept to JavaScript HTML CSS
+A web version of my board game - Last Man Standing -Ported from a board game concept to JavaScript HTML CSS
 
 
 ![Last man standing Image](https://raw.githubusercontent.com/theslantedroom/Last-Man-Standing-Mini-Game/main/img/githubLMS.jpg)
