@@ -20,9 +20,13 @@ GOALS of this Project; <br>
  ~~add 34 enemy types using constructor function and class~~  <br>
  ~~add gold and healing systems~~  <br>
  add campaign <br>
+ Add music composed by myself (the slanted room) <br>
  CSS and visual layout design <br>
- Stand alone app in phonegap or Electron <br>
+ flesh out the animations and UI <br>
+ possible stand alone app in phonegap or Electron <br>
  Look into backend for user data saving <br>
+
+ 
  
 
 Please feel free to contact me with advise or suggestions.  <br>
