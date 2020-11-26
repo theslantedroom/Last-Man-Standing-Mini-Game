@@ -9,7 +9,23 @@ The challenges this project presented for myself while learning to code have bee
 <br>  I will continue to develop this project possibly making it a stand alone app in 'Electron' or incorporating a back-end in Python or node.js for users to save their progress.
 I plan to add in the campaign next, as present in the board game.
 
-Please feel free to contact me with advise or suggestions. 
+GOALS of this Project; <br>
+ ~~Create 1v1 with static equipment and 1 enemy~~  <br>
+ ~~ability to name character~~  <br>
+ ~~choose different character cards~~  <br>
+ ~~A market where you can buy equipment~~  <br>
+ ~~inventory system that prevents dual weilding two handed weapons~~  <br>
+ ~~inventory system that prevents dual weilding shields~~  <br>
+ ~~Skill cards that apply to battle calculations~~  <br>
+ ~~add 34 enemy types using constructor function and class~~  <br>
+ ~~add gold and healing systems~~  <br>
+ add campaign <br>
+ CSS and visual layout design <br>
+ Stand alone app in phonegap or Electron <br>
+ Look into backend for user data saving <br>
+ 
+
+Please feel free to contact me with advise or suggestions.  <br>
 
 
 - [The Slanted Room - My music stuff](https://www.theslantedroom.ca/)
