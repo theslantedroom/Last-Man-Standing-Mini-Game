@@ -2,7 +2,7 @@
 var player1 = {
 	name: 'player1',
 	currentCharCard: 9,
-	gold: 50,
+	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
 	damageBonusWeapon2: 0,
