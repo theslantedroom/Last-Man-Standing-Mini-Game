@@ -2,7 +2,7 @@
 var player1 = {
 	name: 'player1',
 	currentCharCard: 9,
-	gold: 5,
+	gold: 50,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
 	damageBonusWeapon2: 0,
@@ -387,7 +387,7 @@ function player1previousCharacter(){
 			player1.currentCharCard = 32;
 		}
 		console.log('player1.currentCharCard '+player1.currentCharCard);
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
 
@@ -397,7 +397,7 @@ function player1NextCharacter(){
 			player1.currentCharCard = 1;
 		}
 		console.log('player1.currentCharCard '+player1.currentCharCard);
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
 function closeMarket(){
@@ -482,7 +482,7 @@ discardButtonRightHand.addEventListener("click", function() {
 });
 function discardWeaponR(){
 	if (player1.weapon1Card != 0){
-	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
+	discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon1Card + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonRightHand.style.display = "flex";
@@ -503,7 +503,7 @@ discardButtonLeftHand.addEventListener("click", function() {
 });
 function discardWeaponL(){
 	if (player1.weapon2Card != 0){
-	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
+	discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon2Card + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonLeftHand.style.display = "flex";
@@ -521,7 +521,7 @@ discardButtonArmor.addEventListener("click", function() {
 });
 function discardArmor(){
 	if (player1.armorCard != 0){
-	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
+	discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/a" + player1.armorCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonArmor.style.display = "flex";
@@ -539,7 +539,7 @@ discardButtonHealth.addEventListener("click", function() {
 });
 function discardHealth(){
 	if (player1.healthCard != 0){
-		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1.healthCard + ".jpg')";
+		discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/healthBonus0" + player1.healthCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonHealth.style.display = "flex";
@@ -555,7 +555,7 @@ discardButtonDamage.addEventListener("click", function() {
 });
 function discardDamage(){
 	if (player1.damageCard != 0){
-		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1.damageCard + ".jpg')";
+		discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/damageBonus" + player1.damageCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonDamage.style.display = "flex";
@@ -571,7 +571,7 @@ discardButtonAttack.addEventListener("click", function() {
 });
 function discardAttack(){
 	if (player1.attackCard != 0){
-		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
+		discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/attackBonus" + player1.attackCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonAttack.style.display = "flex";
@@ -587,7 +587,7 @@ discardButtonDefense.addEventListener("click", function() {
 });
 function discardDefense(){
 	if (player1.defenseCard != 0){
-		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
+		discardPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonDefense.style.display = "flex";
@@ -954,13 +954,13 @@ var buyT10 = document.querySelectorAll("img")[63];
 var buyT11 = document.querySelectorAll("img")[64];
 var buyT12 = document.querySelectorAll("img")[65];
 
-const updateBuyPreviewDualWield = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + shoppingCartRightHand.weapon1Card + ".jpg')";
-const updateBuyPreviewTwoHanded = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + shoppingTwoHanded.weapon1Card + ".jpg')";
-const updateBuyPreviewArmor = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/a" + shoppingArmor.armorCard + ".jpg')";
-const updateBuyPreviewHealth = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + shoppingHealth.healthCard + ".jpg')";
-const updateBuyPreviewDamage = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + shoppingDamage.damageCard + ".jpg')";
-const updateBuyPreviewAttack = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + shoppingAttack.attackCard + ".jpg')";
-const updateBuyPreviewDefense = () => buyPreview.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + shoppingDefense.defenseCard + ".jpg')";
+const updateBuyPreviewDualWield = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + shoppingCartRightHand.weapon1Card + ".jpg')";
+const updateBuyPreviewTwoHanded = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + shoppingTwoHanded.weapon1Card + ".jpg')";
+const updateBuyPreviewArmor = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/a" + shoppingArmor.armorCard + ".jpg')";
+const updateBuyPreviewHealth = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/healthBonus0" + shoppingHealth.healthCard + ".jpg')";
+const updateBuyPreviewDamage = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/damageBonus" + shoppingDamage.damageCard + ".jpg')";
+const updateBuyPreviewAttack = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/attackBonus" + shoppingAttack.attackCard + ".jpg')";
+const updateBuyPreviewDefense = () => buyPreview.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/defenseBonus" + shoppingDefense.defenseCard + ".jpg')";
 // EVENT LISTENERS
 //Click on STORE ITEMS
 buyW1.addEventListener("click", function() {
@@ -1994,7 +1994,7 @@ buyW18.addEventListener("click", function() {
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
-		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 4;
 		shoppingTwoHanded.damageBonusShield1 = 0;
 		shoppingTwoHanded.gold = 5;
 		shoppingTwoHanded.weapon2 = -1;
@@ -2021,17 +2021,17 @@ buyW19.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 29;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 8){
-		wantToBuy.innerHTML = "Do you want to buy the Pike for ";
-		wantToBuyGoldCost.innerHTML = "8 gold?";
-		shoppingTwoHanded.gold = 8;
-		shoppingTwoHanded.weapon1 = 10;
+		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 10){
+		wantToBuy.innerHTML = "Sweet Victory and glory, Pike for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon1 = 12;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
-		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 4;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.gold = 10;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2043,7 +2043,7 @@ buyW19.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Pike";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 8){
+	} else if (player1.gold < 10){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Pike."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
@@ -2056,17 +2056,17 @@ buyW20.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 30;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 10){
-		wantToBuy.innerHTML = "Do you want to buy the Halberd for ";
-		wantToBuyGoldCost.innerHTML = "10 gold?";
-		shoppingTwoHanded.gold = 10;
-		shoppingTwoHanded.weapon1 = 12;
+		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 15){
+		wantToBuy.innerHTML = "Grusome wounds inflicted, Halberd for ";
+		wantToBuyGoldCost.innerHTML = "15 gold?";
+		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.weapon1 = 20;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
-		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 4;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.gold = 15;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2078,7 +2078,7 @@ buyW20.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Halberd";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 10){
+	} else if (player1.gold < 15){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Halberd."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
@@ -3086,14 +3086,14 @@ function refresh(){
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon1 + player1.attackBonusWeapon2;	
 
 // CARD UPDATES
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
-		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
-		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
-		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
-		player1HealthCard.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1.healthCard + ".jpg')";
-		player1DamageCard.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1.damageCard + ".jpg')";
-		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
-		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/charCard" + player1.currentCharCard + ".jpg')";
+		player1Weapon1Card.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon1Card + ".jpg')";
+		player1ArmorCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/a" + player1.armorCard + ".jpg')";
+		player1Weapon2Card.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon2Card + ".jpg')";
+		player1HealthCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/healthBonus0" + player1.healthCard + ".jpg')";
+		player1DamageCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/damageBonus" + player1.damageCard + ".jpg')";
+		player1AttackCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/attackBonus" + player1.attackCard + ".jpg')";
+		player1DefenseCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 
@@ -3102,8 +3102,8 @@ function refresh(){
 
 // Damage popup images
 
-		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
-		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";	
+		logWeapon1PopUp.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon1Card + ".jpg')";
+		logWeapon2PopUp.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/market/w" + player1.weapon2Card + ".jpg')";	
 		popUpOuch.style.display = 'none';
 		popUpHitEnemy.style.display = 'none';
 		deathCountPopup.style.display = 'none';
@@ -3131,7 +3131,7 @@ refresh();
 
 // BOOTUP and Character create
 addHealthBonus();
-player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
+player1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/charCard" + player1.currentCharCard + ".jpg')";
 updateGold();
 player1GotoCharacterSelect();
 clearStore();
@@ -3139,7 +3139,7 @@ clearStore();
 
 const newEnemyApproaches = (enemyCode) => {
 	enemy1CharCard.style.display = 'block'
-	enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
+	enemy1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-Game/img/enemyCard" + currentEnemyCard + ".jpg')";
 
 };
 
@@ -3300,7 +3300,7 @@ function changeEnemy(){
 			currentEnemyCard = 1;
 		}
 		console.log('change Enemy  '+currentEnemyCard);
-		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
+		enemy1CharCard.style.backgroundImage = "url('../Last-Man-Standing-Mini-GameLast-Man-Standing-Mini-Game/img/enemyCard" + currentEnemyCard + ".jpg')";
 };
 
 
