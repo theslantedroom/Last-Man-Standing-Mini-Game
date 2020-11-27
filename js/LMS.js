@@ -2056,17 +2056,17 @@ buyW20.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 30;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 15){
+		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 18){
 		wantToBuy.innerHTML = "Grusome wounds inflicted, Halberd for ";
-		wantToBuyGoldCost.innerHTML = "15 gold?";
-		shoppingTwoHanded.gold = 15;
+		wantToBuyGoldCost.innerHTML = "18 gold?";
+		shoppingTwoHanded.gold = 18;
 		shoppingTwoHanded.weapon1 = 20;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
 		shoppingTwoHanded.defenseBonusShield1 = 4;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.gold = 18;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2078,7 +2078,7 @@ buyW20.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Halberd";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 15){
+	} else if (player1.gold < 18){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Halberd."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
