@@ -1986,17 +1986,17 @@ buyW18.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 28;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 5){
-		wantToBuy.innerHTML = "Do you want to buy the Military Fork for ";
-		wantToBuyGoldCost.innerHTML = "5 gold?";
-		shoppingTwoHanded.gold = 5;
-		shoppingTwoHanded.weapon1 = 8;
+		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 8){
+		wantToBuy.innerHTML = "Oh! A fork type eh? Military Fork for ";
+		wantToBuyGoldCost.innerHTML = "8 gold?";
+		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.weapon1 = 10;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
 		shoppingTwoHanded.defenseBonusShield1 = 4;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 5;
+		shoppingTwoHanded.gold = 8;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2008,7 +2008,7 @@ buyW18.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Military Fork";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 5){
+	} else if (player1.gold < 8){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Military Fork."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
