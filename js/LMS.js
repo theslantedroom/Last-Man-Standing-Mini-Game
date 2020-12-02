@@ -2055,17 +2055,17 @@ buyW18.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 28;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 8){
+		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 10){
 		wantToBuy.innerHTML = "Oh! A fork type eh? Military Fork for ";
-		wantToBuyGoldCost.innerHTML = "8 gold?";
-		shoppingTwoHanded.gold = 8;
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
 		shoppingTwoHanded.weapon1 = 10;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
-		shoppingTwoHanded.defenseBonusShield1 = 4;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.gold = 10;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2077,7 +2077,7 @@ buyW18.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Military Fork";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 8){
+	} else if (player1.gold < 10){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Military Fork."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
@@ -2090,17 +2090,17 @@ buyW19.addEventListener("click", function() {
 		confirmBuyOpen();
 		shoppingTwoHanded.weapon1Card = 29;
 		updateBuyPreviewTwoHanded();
-		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 10){
+		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 12){
 		wantToBuy.innerHTML = "Sweet Victory and glory, Pike for ";
-		wantToBuyGoldCost.innerHTML = "10 gold?";
-		shoppingTwoHanded.gold = 10;
+		wantToBuyGoldCost.innerHTML = "12 gold?";
+		shoppingTwoHanded.gold = 12;
 		shoppingTwoHanded.weapon1 = 12;
 		shoppingTwoHanded.weapon1Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon1 = 0;
 		shoppingTwoHanded.attackBonusWeapon1 = 0;
-		shoppingTwoHanded.defenseBonusShield1 = 4;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
 		shoppingTwoHanded.damageBonusShield1 = 0;
-		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.gold = 12;
 		shoppingTwoHanded.weapon2 = -1;
 		shoppingTwoHanded.weapon2Bonus = -1;
 		shoppingTwoHanded.damageBonusWeapon2 = 0;
@@ -2112,7 +2112,7 @@ buyW19.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You already own this Pike";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
-	} else if (player1.gold < 10){
+	} else if (player1.gold < 12){
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Pike."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
