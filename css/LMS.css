@@ -4,6 +4,8 @@ header{
 	justify-content: center;
 }
 body{
+	position: absolute;
+	top: 0;
 	height: 100vh;
 	min-width: 550px;
 	max-width: 1700px;
@@ -14,7 +16,7 @@ body{
 	margin: auto;
 }
 button {
-	font-size: 20px;
+	font-size: 40px;
 	padding: 10px;
 	justify-content: center;
 	margin: auto;
@@ -87,7 +89,7 @@ h5{
 
 .offScreenTop{
 	position: relative !important;
-	top: -5999px !important; 
+	top: -9999px !important; 
 }
 
 #player1NameInput{
@@ -104,13 +106,14 @@ h5{
 	font-size: 15;
 }
 #characterCreation{
+	transition: all 2250ms ease-in-out;
 	color: white;
 	background-image: url(../img/BG.jpg);
 	background-size: cover;
 	background-repeat: repeat-y;
 	min-width: 620px;
 	text-align: center;
-	position: fixed;
+	position: absolute;
 	height: 100vh;
 	top: 0px;
 	right: 0px;
@@ -118,6 +121,9 @@ h5{
 	left: 0px;
 	border: 10px solid black;
 	z-index: 1;
+}
+#characterCreation h1{
+ margin-top: 0;
 }
 #chooseCharacter{
 	display: flex;
@@ -171,6 +177,15 @@ h5{
 	background-size: 100%;
 	background-position: center;
 	background-size: contain;
+}
+.charcardCenter{
+	transition: all 2250ms ease-in-out;
+}
+
+.charcardOffLeft{
+	position: absolute !important;
+	top: -999px!important;
+	transition: all 2250ms ease-in-out;
 }
 #player1HealthCounter{
 	line-height: 2.4;
@@ -520,8 +535,8 @@ justify-content: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	border: 1px solid black;
-	width: 24vh;
-	height: 24vh;
+	width: 20vh;
+	height: 20vh;
 	top: -53vh;
 }
 #logWeapon2PopUp{
@@ -531,8 +546,8 @@ justify-content: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	border: 1px solid black;
-	width: 24vh;
-	height: 24vh;
+	width: 20vh;
+	height: 20vh;
 	top: -53vh;
 }
 #enemyHealthCounter{
@@ -569,10 +584,10 @@ justify-content: center;
 	background-image: url(../img/ouch.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	width: 27vh;
-	height: 27vh;
-	top: 14%;
-	left: -1%;
+	width: 20vh;
+	height: 20vh;
+	top: 1%;
+	left: 1%;
 	transform: rotate(-101deg);
 	display: none;
 	z-index: 2;
@@ -659,5 +674,35 @@ th {
 }
 
 
+/* Doors */
+.leftDoor{
+	position: absolute;
+	left: 0;
+	width: 50vw;
+	height: 100vh;
+	border: 1px solid rgb(247, 241, 241);
+	z-index: 7;
+	background: url("../img/doorL.jpg");
+	background-size: cover;
+	background-position: right top;
 
+}
+.rightDoor{
+	position: absolute;
+	right: 0;
+	width: 50vw;
+	height: 100vh;
+	background-color: rgb(125, 180, 235);
+	border: 1px solid rgb(243, 238, 238);
+	z-index: 7;
+	background-image: url("../img/doorR.jpg");
+	background-size: cover;
+	background-position: left top;
+}
+
+.leftDoorOpen,
+.rightDoorOpen{
+	width: 0vw;
+	transition: all 7000ms ease-in-out;
+}
 
