@@ -214,7 +214,7 @@ const discardPreview = document.getElementById("discardPreview");
 var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
-var characterCreationButton = document.getElementById("closeCharacterCreation");
+var closeCharacterCreation = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var foundGold =  document.getElementById("foundGold");
@@ -298,6 +298,47 @@ var healCost = document.getElementById("healCost");
 var buyHealing = document.getElementById("buyHealing");
 
 
+const fadeMusic = (song) =>{
+	var fadeTimer = setInterval(function() {
+		if (song.volume <= .1){
+			song.pause();
+			song.currentTime = 0;
+			song.volume = 1;
+			clearInterval(fadeTimer);
+		};
+		if (song.volume >= .1) {
+		song.volume -= 0.1;	
+		};
+        }, 200);
+};
+
+const playMusic = (song) => {
+	song.currentTime = 0;
+	song.play();
+
+};
+
+const playSound = (sound) => {
+	sound.currentTime = 0;
+	sound.play();
+};
+
+
+
+// Screens
+var titleScreen = document.getElementById("titleScreen");
+
+const closeTitleScreen = () => {
+	// titleScreen.style.display = "none";
+	titleScreen.classList.add("offScreenTop");
+	ancientDream.play();
+
+
+};
+
+
+
+
 // HEALING MARKET BUTTON
 buyHealing.addEventListener("click", function(){
 	if (player1.gold >= healCostGold && player1.currentHealth != player1.maxHealth){
@@ -306,17 +347,21 @@ buyHealing.addEventListener("click", function(){
 				updateGold();
 				player1CurrentHp.innerHTML = player1.currentHealth;
 				buyHealing.innerHTML = 'All healed!';
+				playSound(healedSound);
 		} else if (player1.currentHealth == player1.maxHealth){
 				buyHealing.innerHTML = 'You are at full health already!';
+				playSound(cannotAffordSound);
 		}else {
 			buyHealing.innerHTML = 'You can not afford to this!';
+			playSound(cannotAffordSound);
 		};
 });
 
-characterCreationButton.addEventListener("click", function(){
+closeCharacterCreation.addEventListener("click", function(){
 	console.log(player1NameInput.value);
 	player1.name = player1NameInput.value;
 	charCreationPickCharacter.style.visibility = "hidden";
+	fadeMusic(ancientDream);
 	closeMarket();
 	player1GotoBattle();
 	refresh();
@@ -383,6 +428,7 @@ function addHealthBonus(){
 
 function player1previousCharacter(){	
 		player1.currentCharCard -= 1;
+		playSound(changeCharacterSound);
 		if (player1.currentCharCard == 0) {
 			player1.currentCharCard = 32;
 		}
@@ -393,6 +439,7 @@ function player1previousCharacter(){
 
 function player1NextCharacter(){	
 		player1.currentCharCard += 1;
+		playSound(changeCharacterSound);
 		if (player1.currentCharCard == 33) {
 			player1.currentCharCard = 1;
 		}
@@ -406,6 +453,13 @@ function closeMarket(){
 };
 
 function openMarket(){
+
+	if (ancientDream.paused){
+		fadeMusic(encounter1);
+		playMusic(MoonLight);
+	}
+	playSound(gotoMarketSound);
+
 	player1GotoMarket();
 	resetHealButton();
 	clearStore();
@@ -416,26 +470,32 @@ function openMarket(){
 function weaponStoreOneHandButton(){
 	clearStore();
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
+	playSound(marketCategory);
 };
 function weaponStoreTwoHandButton(){
 	clearStore();
 	document.getElementById("storeItemsTwoHanded").style.display = "flex";
+	playSound(marketCategory);
 };
 function weaponStoreRangedButton(){
 	clearStore();
 	document.getElementById("storeItemsRanged").style.display = "flex";
+	playSound(marketCategory);
 };
 function weaponStoreShieldButton(){
 	clearStore();
 	document.getElementById("storeItemsShields").style.display = "flex";
+	playSound(marketCategory);
 };
 function armorStoreButton(){
 	clearStore();
 	document.getElementById("storeItemsArmor").style.display = "flex";
+	playSound(marketCategory);
 };
 function trainingStoreButton(){
 	clearStore();
 	document.getElementById("storeItemsTraining").style.display = "flex";	
+	playSound(marketCategory);
 };
 function clearStore(){
 	document.getElementById("storeItemsOnehandWeapons").style.display = "none";
@@ -444,15 +504,17 @@ function clearStore(){
 	document.getElementById("storeItemsShields").style.display = "none";
 	document.getElementById("storeItemsArmor").style.display = "none";
 	document.getElementById("storeItemsTraining").style.display = "none";
-	cancelBuyClose();
+	// cancelBuyClose();
 };
 
 function confirmBuyOpen(){
 	confirmBuyWindow.style.display = 'flex';
+	playSound(clickItem);
 };
 
 function cancelBuyClose(){
 	confirmBuyWindow.style.display = 'none';
+	playSound(cancelItem);
 };
 
 function cancelDiscardClose(){
@@ -478,7 +540,7 @@ discardButtonRightHand.addEventListener("click", function() {
 	player1.damageBonusShield1 = 0;
 	confirmDiscardClose();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardWeaponR(){
 	if (player1.weapon1Card != 0){
@@ -499,7 +561,7 @@ discardButtonLeftHand.addEventListener("click", function() {
 	player1.damageBonusShield2 = 0;
 	confirmDiscardClose();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardWeaponL(){
 	if (player1.weapon2Card != 0){
@@ -517,7 +579,7 @@ discardButtonArmor.addEventListener("click", function() {
 	confirmDiscardClose();
 	addHealthBonus();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardArmor(){
 	if (player1.armorCard != 0){
@@ -535,7 +597,7 @@ discardButtonHealth.addEventListener("click", function() {
 	confirmDiscardClose();
 	addHealthBonus();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardHealth(){
 	if (player1.healthCard != 0){
@@ -551,7 +613,7 @@ discardButtonDamage.addEventListener("click", function() {
 	player1.damageBonusSkill = 0;
 	confirmDiscardClose();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardDamage(){
 	if (player1.damageCard != 0){
@@ -567,7 +629,7 @@ discardButtonAttack.addEventListener("click", function() {
 	player1.attackBonusSkill = 0;
 	confirmDiscardClose();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardAttack(){
 	if (player1.attackCard != 0){
@@ -583,7 +645,7 @@ discardButtonDefense.addEventListener("click", function() {
 	player1.defenseBonusSkill = 0;
 	confirmDiscardClose();
 	refresh();
-	console.log('click discard');
+	playSound(equipSound);
 });
 function discardDefense(){
 	if (player1.defenseCard != 0){
@@ -742,6 +804,7 @@ function checkoutRightHand(){
 	player1.attackBonusWeapon1 = shoppingCartRightHand.attackBonusWeapon1;
 	player1.defenseBonusShield1 = shoppingCartRightHand.defenseBonusShield1;
 	player1.damageBonusShield1 = shoppingCartRightHand.damageBonusShield1;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -766,6 +829,7 @@ function checkoutLeftHand(){
 	player1.attackBonusWeapon2 = shoppingCartLeftHand.attackBonusWeapon2;
 	player1.defenseBonusShield2 = shoppingCartLeftHand.defenseBonusShield2;
 	player1.damageBonusShield2 = shoppingCartLeftHand.damageBonusShield2;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -803,6 +867,7 @@ function checkoutTwoHanded(){
 	player1.attackBonusWeapon2 = shoppingTwoHanded.attackBonusWeapon2;
 	player1.defenseBonusShield2 = shoppingTwoHanded.defenseBonusShield2;
 	player1.damageBonusShield2 = shoppingTwoHanded.damageBonusShield2;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -823,6 +888,7 @@ function checkoutArmor(){
 	player1.currentHealth += shoppingArmor.topupHP;
 	refresh();
 	addHealthBonus();
+	playSound(equipSound);
 };
 
 // Training
@@ -840,6 +906,7 @@ function checkoutHealth(){
 	player1.currentHealth += shoppingHealth.topupHP;
 	refresh();
 	addHealthBonus();
+	playSound(equipSound);
 };
 
 var shoppingDamage = {
@@ -851,6 +918,7 @@ function checkoutDamage(){
 	player1.gold -= shoppingDamage.gold;
 	player1.damageCard = shoppingDamage.damageCard;
 	player1.damageBonusSkill = shoppingDamage.damageBonusSkill;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -863,6 +931,7 @@ function checkoutAttack(){
 	player1.gold -= shoppingAttack.gold;
 	player1.attackCard = shoppingAttack.attackCard;
 	player1.attackBonusSkill = shoppingAttack.attackBonusSkill;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -875,6 +944,7 @@ function checkoutDefense(){
 	player1.gold -= shoppingDefense.gold;
 	player1.defenseCard = shoppingDefense.defenseCard;
 	player1.defenseBonusSkill = shoppingDefense.defenseBonusSkill;
+	playSound(equipSound);
 	refresh();
 };
 
@@ -964,7 +1034,6 @@ const updateBuyPreviewDefense = () => buyPreview.style.backgroundImage = "url('i
 // EVENT LISTENERS
 //Click on STORE ITEMS
 buyW1.addEventListener("click", function() {
-	console.log('buyW1');
 		confirmBuyOpen();
 		shoppingCartRightHand.weapon1Card = 1;
 		shoppingCartLeftHand.weapon2Card = 1;
@@ -3136,7 +3205,6 @@ updateGold();
 player1GotoCharacterSelect();
 clearStore();
 
-
 const newEnemyApproaches = (enemyCode) => {
 	enemy1CharCard.style.display = 'block'
 	enemy1CharCard.style.backgroundImage = "url('img/enemyCard" + currentEnemyCard + ".jpg')";
@@ -3145,6 +3213,7 @@ const newEnemyApproaches = (enemyCode) => {
 
 // START
 function start(){
+	playMusic(encounter1);
 	console.log('start');
 	newEnemyApproaches(currentEnemyCard);
 	slideStart.style.display = "none";
@@ -3191,7 +3260,7 @@ function logSlide(){
 	slideLogSlide.style.display = "none";
 	popUpHitEnemy.style.display = "none";
 	slideEnemy1Turn.style.display = "block";
-
+	playSound(roar);
 
 	enemy1Attack();
 };
@@ -3233,6 +3302,7 @@ function nextEnemy(){
 function enemy1Dead(){
 	currentEnemyCard += 1;
 	healCostGold = Math.round(currentEnemyCard/10) + 2;
+	playSound(deadEnemy);
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
@@ -3253,6 +3323,11 @@ function enemy1Dead(){
 
 
 function fightNext(){
+	fadeMusic(MoonLight);
+
+	setTimeout(function(){
+	playMusic(encounter1);
+	 }, 500);
 	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";
@@ -3272,6 +3347,8 @@ function enemy1AttackDone(){
 
 function player1Ouch(){
 	popUpOuch.style.display = "block";
+	playSound(takedamage);
+
 };
 
 function Enemy1Ouch(){
@@ -3279,6 +3356,7 @@ function Enemy1Ouch(){
 };
 
 function player1Dead(){
+		playSound(dead);
 		deathCount = deathCount + 1;
 		battleNumber = 1;
 		player1CurrentHp.innerHTML = player1.currentHealth;
@@ -3288,7 +3366,6 @@ function player1Dead(){
 		tableDeathScore.innerHTML = deathCount;
 		slideLogSlideE.style.display = "none";
 		slidePlayer1Dead.style.display = "block";
-
 		console.log('player dead');
 };
 
@@ -3319,17 +3396,17 @@ function player1AttackRoll(){
 	if (attackRoll > (enemyArray[currentEnemyCard].defense - player1.attack) && attackRoll != 20) {
 		slidePlayer1Hit.style.display = "block";
 		player1DamageAttackRoll.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
-		console.log('hit enemy');
+		playSound(hit);
 // CRIT
 	} else if (attackRoll == 20) {
 		slidePlayer1Critical.style.display = "block";
-		console.log('critical hit on enemy');	
+		playSound(crit);	
 //MISS
 	} else if (attackRoll <= enemyArray[currentEnemyCard].defense - player1.attack)	{
 		slideLogSlide.style.display = "block";
 		logSlideResultLine2.innerHTML = 'Miss';
 		logSlideResultLine3.innerHTML = "pathetic...";
-		console.log(" player1 miss with " + attackRoll);
+		playSound(miss);
 	};
 };
 
@@ -3355,6 +3432,7 @@ function player1Damage(){
 		logSlideResultLine2.innerHTML = '<span style="color: red">a deep wound</span>';
 		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemyArray[currentEnemyCard].currentHealth;
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;	
+		playSound(damage);
 // Killed Enemy
 		if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slideLogSlide.style.display = "none";	
@@ -3365,6 +3443,7 @@ function player1Damage(){
 		damageResultLine3K.innerHTML = 'Sweet Victory!  ' + (attackDamage+player1.damage) +' damage kills the enemy';	
 		enemy1Dead();
 		console.log('killed enemy');
+		playSound(deadEnemy);
 	};
 };
 
@@ -3380,6 +3459,7 @@ function player1Critical(){
 		logSlideResultLine2.innerHTML = 'Critical hit <span style="color: red">DOUBLES </span>damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemyArray[currentEnemyCard].currentHealth + ' health';	
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
+		playSound(damage);
 // killed him Critical
 	if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slidePlayer1Critical.style.display = "none";
@@ -3450,6 +3530,7 @@ function enemyAttack(){
 		logSlideResultLine2E.innerHTML = 'Enemy misses..';
 		logSlideResultLine3E.innerHTML = "lucky for you";
 		slideLogSlideE.style.backgroundColor = "rgba(255, 153, 153, 00)";
+		playSound(miss);
 	};
 
 	// killed player dead

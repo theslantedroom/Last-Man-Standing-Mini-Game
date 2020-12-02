@@ -1,0 +1,19 @@
+{
+  "name": "last-man-standing-mini-game",
+  "version": "1.0.0",
+  "description": "Last Man Standing App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theslantedroom/Last-Man-Standing-Mini-Game.git"
+  },
+  "author": "Steve Yee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game/issues"
+  },
+  "homepage": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game#readme"
+}
