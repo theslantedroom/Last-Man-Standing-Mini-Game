@@ -3541,3 +3541,15 @@ function enemyAttack(){
 	player1Dead();
 	};
 };
+
+
+
+const openDoors = ()=>{
+	document.getElementById('rightDoor').classList.add("rightDoorOpen");
+	document.getElementById('leftDoor').classList.add("leftDoorOpen");
+};
+
+setInterval(function(){
+	openDoors();
+	console.log("open"); 
+}, 400);
