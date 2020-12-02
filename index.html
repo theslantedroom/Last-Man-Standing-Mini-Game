@@ -11,12 +11,11 @@
 		<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/LMS.css">
 </head>
-
+<div id="leftDoor" class="leftDoor"></div>
+<div id="rightDoor" class="rightDoor"></div>
 
 <body>
 
-	<div id="leftDoor" class="leftDoor"></div>
-	<div id="rightDoor" class="rightDoor"></div>
 
 
     <div id="titleScreen">
@@ -89,7 +88,7 @@
 
 		<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
 		<p>Get ready, </p>
-		<button id="closeCharacterCreation">I'm Ready! Leave the market</button>
+		<button id="imReadyLeaveMarket">I'm Ready! Leave the market</button>
 		<h2>You have <span id="player1Gold"></span> gold.</h2>
 	</div>
 
@@ -318,7 +317,7 @@
 			<div class="lighter"><p id="rollResult">....</p> </div>
 			<div><p id="resultLine2">....</p></div>
 			<div><p id="resultLine3">....</p></div>
-			<div class=""><button onclick="logSlide()">continue to enemy turn...</button></div>
+			<div class=""><button onclick="logSlide()">to enemy turn...</button></div>
 				<div id="logWeaponPopupCard">
 					<div class="animate__animated animate__rubberBand" id="logWeapon1PopUp"></div>
 					<div class="animate__animated animate__rubberBand" id="logWeapon2PopUp"></div>

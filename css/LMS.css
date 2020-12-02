@@ -4,6 +4,8 @@ header{
 	justify-content: center;
 }
 body{
+	position: absolute;
+	top: 0;
 	height: 100vh;
 	min-width: 550px;
 	max-width: 1700px;
@@ -14,7 +16,7 @@ body{
 	margin: auto;
 }
 button {
-	font-size: 20px;
+	font-size: 40px;
 	padding: 10px;
 	justify-content: center;
 	margin: auto;
@@ -119,6 +121,9 @@ h5{
 	left: 0px;
 	border: 10px solid black;
 	z-index: 1;
+}
+#characterCreation h1{
+ margin-top: 0;
 }
 #chooseCharacter{
 	display: flex;
@@ -530,8 +535,8 @@ justify-content: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	border: 1px solid black;
-	width: 24vh;
-	height: 24vh;
+	width: 20vh;
+	height: 20vh;
 	top: -53vh;
 }
 #logWeapon2PopUp{
@@ -541,8 +546,8 @@ justify-content: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	border: 1px solid black;
-	width: 24vh;
-	height: 24vh;
+	width: 20vh;
+	height: 20vh;
 	top: -53vh;
 }
 #enemyHealthCounter{
@@ -579,10 +584,10 @@ justify-content: center;
 	background-image: url(../img/ouch.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	width: 27vh;
-	height: 27vh;
-	top: 14%;
-	left: -1%;
+	width: 20vh;
+	height: 20vh;
+	top: 1%;
+	left: 1%;
 	transform: rotate(-101deg);
 	display: none;
 	z-index: 2;
@@ -698,6 +703,6 @@ th {
 .leftDoorOpen,
 .rightDoorOpen{
 	width: 0vw;
-	transition: all 6250ms ease-in-out;
+	transition: all 7000ms ease-in-out;
 }
 

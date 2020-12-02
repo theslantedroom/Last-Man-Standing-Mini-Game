@@ -211,10 +211,10 @@ var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
 const buyPreview = document.getElementById("buyPreview");
 const discardPreview = document.getElementById("discardPreview");
 
-var charCreationPickCharacter = document.getElementById("characterCreation");
+var characterCreation = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
-var closeCharacterCreation = document.getElementById("closeCharacterCreation");
+var imReadyLeaveMarket = document.getElementById("imReadyLeaveMarket");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var foundGold =  document.getElementById("foundGold");
@@ -357,10 +357,10 @@ buyHealing.addEventListener("click", function(){
 		};
 });
 
-closeCharacterCreation.addEventListener("click", function(){
+imReadyLeaveMarket.addEventListener("click", function(){
 	console.log(player1NameInput.value);
 	player1.name = player1NameInput.value;
-	charCreationPickCharacter.style.visibility = "hidden";
+	characterCreation.style.visibility = "hidden";
 	fadeMusic(ancientDream);
 	closeMarket();
 	player1GotoBattle();
@@ -456,10 +456,10 @@ function openMarket(){
 
 	if (ancientDream.paused){
 		fadeMusic(encounter1);
-		playMusic(MoonLight);
+		playMusic(MoonLight);	
 	}
 	playSound(gotoMarketSound);
-
+	characterCreation.style.display = "none";
 	player1GotoMarket();
 	resetHealButton();
 	clearStore();
@@ -3549,7 +3549,7 @@ const openDoors = ()=>{
 	document.getElementById('leftDoor').classList.add("leftDoorOpen");
 };
 
-setInterval(function(){
+setTimeout(function(){
 	openDoors();
 	console.log("open"); 
 }, 400);
