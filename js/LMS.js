@@ -362,7 +362,7 @@ const closeTitleScreen = () => {
 
 const weekCardUp = (week) => {
 	let weekSlide = document.getElementById('week');
-	weekSlide.classList.remove("weekOffScreen");
+	// weekSlide.classList.remove("weekOffScreen");
 	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
 };
 
