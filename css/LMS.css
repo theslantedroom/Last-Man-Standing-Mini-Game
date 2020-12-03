@@ -14,6 +14,8 @@ body{
 	background-repeat: repeat-y;
 	width: 100%;
 	margin: auto;
+	display: flex;
+	justify-content: center;
 }
 button {
 	font-size: 40px;
@@ -608,6 +610,38 @@ justify-content: center;
 	z-index: 2;
 }
 
+
+/* Weeks */
+.week{
+	position: absolute;
+	top: 0;
+	margin: auto;
+	width: 80%;
+	height: 80vh;
+	padding: 80px;
+	background-image: url("../img/theLongQuest1.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	z-index: 1;
+	transition: 550ms all ease;
+	color: thistle;
+}
+.weekOffScreen{
+	top: 200%;
+	transition: 550ms all ease;
+}	
+
+#advanceWeek{
+	display: none;
+}
+
+
+
+
+
+/* Table */
 
 #table {
 	background-color: black;
