@@ -2,9 +2,17 @@
 <html>
 <head>
 	<title>LAST MAN STANDING</title>
-<!-- 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+	<meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+	@font-face {
+  font-family: 'Press Start 2P';
+  src:   url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+		</style>
+
 	<link rel="icon" href="img/dead.jpg">
 	<!-- css Animate -->
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -16,9 +24,7 @@
 
 <body>
 
-
-
-    <div id="titleScreen">
+    <div class="titleScreen" id="titleScreen">
 		<h1>Last Man Standing</h1>
 		<p></p>
 		<p>Currently this app is a gauntlet of 36 enemies to battle through, a proof of concept, with plans to expand a campaign element later.</p>
@@ -33,24 +39,18 @@
 			<li>gameplay balancing</li>
 			<li>implement PYTHON backend for save games</li>
 			<li>port to Electron for steam and app stores</li>
-			<li>and more</li>
 		</ul>
-
-
-
-
 		<button onclick="closeTitleScreen()">Click to Begin your Adventure</button>
 	</div>
 
 
 
 
-
-	<div id="characterCreation">
+<!-- Character Create -->
+<div id="characterCreation">
 		<h1>Last Man Standing - Alpha Testing</h1>
-		<h4>Mobile Mini Game - V1.04 In Development <a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target='blank'>The Github Repo </a>- regular updates </h4>
-
-		
+		<h4>Mobile Mini Game - V1.05 In Development <a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target='blank'>The Github Repo </a>- regular updates </h4>
+	
 		<div id="nameConfirm">
 			<label class="tooltip" for="player1NameInput">Name:  <span class="tooltiptext">Give Yourself a cool name!</span></label>
 			<input id="player1NameInput" type="text" placeholder="enter a name"><button id="nameConfirmButton" onclick="nameToPlayer1Card()">confirm</button>
@@ -62,16 +62,13 @@
 			<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
 			<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
 		</div>	
-
-		
+	
 		<h2>You have <span id='player1Gold2'></span> Gold</h2>
 		<h5>Your objective is to defeat all 36 opponents. <br> Earn gold by defeating enemies and upgrade your equipment after battle to succeed. </h5>
 		<h5>Don't forget to heal between battle if neccesary.</h5>
 		<p>Visit the Market to buy some gear before you begin.</p>
-		<button id="gotoMarket" onclick="openMarket()">Continue to MARKET</button><br>
-
-		
-	</div>
+		<button id="gotoMarket" onclick="openMarket()">Continue to MARKET</button><br>		
+</div>
 
 
 <div id="market">
@@ -88,7 +85,8 @@
 
 		<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
 		<p>Get ready, </p>
-		<button id="imReadyLeaveMarket">I'm Ready! Leave the market</button>
+		<button id="goToBattle">go to battle</button>
+		<button id="advanceWeek">Advance</button>
 		<h2>You have <span id="player1Gold"></span> gold.</h2>
 	</div>
 
@@ -240,10 +238,13 @@
 					<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
 			</div>
 	</div>
-
-<!-- BACK BUTTON HIDDEN -->
-<!-- 	<p onclick="closeMarket()" id="closeMarket"></p> -->
 </div>
+
+
+<dic id="week" class="week weekOffScreen">
+	<button id="closeWeek">close</button>
+</dic>
+
 
 <div id="battleScreen">
 
@@ -348,7 +349,7 @@
 
 		<div id="slideNextEnemy">
 			<p>Searching the body you find <span id="foundGold">x gold</span> gold.</p>
-			<button onclick="openMarket()">Go to Market</button>
+			<button onclick="openMarket(), changeMarketButton() ">Go to Market</button>
 			<p>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
 			<button onclick="fightNext()">READY for next enemy</button>
 			
@@ -542,7 +543,7 @@
 			<audio id="encounter4">
 				<source src="audio/encounter4.mp3" type="audio/mpeg">
 			</audio>
-		</div>
+</div>
 
 </body>
 

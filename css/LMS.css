@@ -4,16 +4,22 @@ header{
 	justify-content: center;
 }
 body{
-	position: absolute;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 20px;
+	position: static;
 	top: 0;
+	left: 0;
+	right: 0;bottom: 0;
 	height: 100vh;
 	min-width: 550px;
 	max-width: 1700px;
 	background-image: url(../img/forestPath.jpg);
-	background-size: cover;
+	/* background-size: cover; */
 	background-repeat: repeat-y;
 	width: 100%;
 	margin: auto;
+	display: flex;
+	justify-content: center;
 }
 button {
 	font-size: 28px;
@@ -41,7 +47,7 @@ h2{
 }
 h3{
 	font-size: 1.5vh;
-	color: grey;
+	color: rgb(165, 14, 14);
 }
 h4{
 	font-size: 1.2vh;
@@ -55,10 +61,11 @@ h5{
 	margin: 1px;
 }
 
-#titleScreen{
+.titleScreen{
+	
 	text-align: center;
 	color: azure;
-	position: absolute;
+	position: relative;
 	background-image: url(../img/BGdark.jpg);
 	background-size: cover;
 	background-repeat: repeat-y;
@@ -69,27 +76,26 @@ h5{
 	z-index: 6;
 	transition: all 2250ms ease-in-out;
 }
-#titleScreen h1{
+.titleScreen h1{
 	font-size: 40px ;
 	padding: 30px;
 	}
-#titleScreen h2{
+.titleScreen h2{
 	font-size: 30px ;
 	}
-#titleScreen p{	font-size: 25px;
+.titleScreen p{	font-size: 25px;
 
 }
-#titleScreen ul{padding: 0;}
-#titleScreen li{
+.titleScreen ul{padding: 0;}
+.titleScreen li{
 	color: cadetblue;
-	font-size: 20px ;
 	list-style: none;
 }
 
 
 .offScreenTop{
-	position: relative !important;
-	top: -9999px !important; 
+	position: relative;
+	top: -9999px 
 }
 
 #player1NameInput{
@@ -188,8 +194,8 @@ h5{
 	transition: all 2250ms ease-in-out;
 }
 #player1HealthCounter{
-	line-height: 2.4;
-	font-size: 2.8vh;
+	line-height: 5.1;
+	font-size: 1.3vh;
 	font-weight: bold;
 	color: black;
 	background-color: white;
@@ -201,7 +207,8 @@ h5{
 	transform: rotate(-10deg);
 }
 #player1DefenseCounter{
-	font-size: 4.4vh;
+	line-height: 1.5;
+	font-size: 3.4vh;
 	font-weight: bold;
 	color: black;
 	background-color: white;
@@ -276,7 +283,7 @@ h5{
 	background-size: cover;
 	background-repeat: repeat;
 	text-align: center;
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
@@ -348,7 +355,7 @@ justify-content: center;
 	width: 500px;
 	z-index: 3;
 	left: 50%;
-	margin-left: -150px;
+	margin-left: -250px;
 	display: none;
 }
 #discardPreview{
@@ -551,7 +558,8 @@ justify-content: center;
 	top: -53vh;
 }
 #enemyHealthCounter{
-	font-size: 3.2vh;
+	line-height: 2;
+	font-size: 2vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
@@ -586,8 +594,8 @@ justify-content: center;
 	background-repeat: no-repeat;
 	width: 20vh;
 	height: 20vh;
-	top: 1%;
-	left: 1%;
+	top: 59%;
+	left: -4%;
 	transform: rotate(-101deg);
 	display: none;
 	z-index: 2;
@@ -609,15 +617,48 @@ justify-content: center;
 }
 
 
+/* Weeks */
+.week{
+	position: absolute;
+	top: 0;
+	margin-top: 30px;
+	width: 29vh;
+	height: 60vh;
+	padding: 80px;
+	background-image: url("../img/theLongQuest1.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 1;
+	transition: 550ms all ease;
+	color: thistle;
+}
+.weekOffScreen{
+	top: -200%;
+	transition: 550ms all ease;
+}	
+#closeWeek{
+	position: relative;
+	left: -151px;
+}
+#advanceWeek{
+	display: none;
+}
+
+
+
+
+
+/* Table */
+
 #table {
 	background-color: black;
 	font-size: 14px;
 	padding: 1px;
 	height: 10vh;
-	width: 100%;
 	margin-top: 1px;
 	table-layout: fixed;
-	width: 500px;
+	width: 90%;
 	margin: auto;
 }
 table, th, td {

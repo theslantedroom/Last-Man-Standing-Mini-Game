@@ -1,7 +1,8 @@
 
+
 var player1 = {
 	name: 'player1',
-	currentCharCard: 9,
+	currentCharCard: (Math.floor(Math.random() * 32) + 1)  ,
 	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
@@ -21,8 +22,8 @@ var player1 = {
 	
 	healthCard: 0,
 	damageCard: 0,
-	weapon1Card: 0,
-	armorCard: 0,
+	weapon1Card: 1,
+	armorCard: 1,
 	weapon2Card: 0,
 	attackCard: 0,
 	defenseCard: 0,
@@ -33,8 +34,8 @@ var player1 = {
 	damage: 0,
 	attack: 0,
 	defense: 0,
-	armor: 2,
-	weapon1: -1,
+	armor: 4,
+	weapon1: 4,
 	weapon2: -1,
 	weapon1Bonus: -1,
 	weapon2Bonus: -1,	
@@ -56,6 +57,7 @@ var attackDamageE = 0;
 var healCostGold = 2;
 var enemyLoopCard = 1;
 var currentEnemyCard = 0;
+let currentWeek = 0;
 
 
 // CONTRUCT ENEMIES
@@ -77,6 +79,27 @@ class Enemy1 {
 }
 
 
+// Construct Quest
+const questArray = [];
+class Quest1 {
+	constructor(week, text) {  // Constructor
+		this.week = week;
+		this.text = text;
+
+	}
+  }
+const week1 = new Quest1(1,'start map');
+questArray.push(week1);
+
+const closeWeek = document.getElementById("closeWeek");
+
+closeWeek.addEventListener("click", function(){
+	document.getElementById('week').classList.add("weekOffScreen");
+});
+
+
+
+// Enemy Objects
 const giantAnt = new Enemy1(0,4,4,4,4,-1,-1,-1,0,0,'Giant Ant');
 enemyArray.push(giantAnt);
 
@@ -214,7 +237,7 @@ const discardPreview = document.getElementById("discardPreview");
 var characterCreation = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
-var imReadyLeaveMarket = document.getElementById("imReadyLeaveMarket");
+var goToBattle = document.getElementById("goToBattle");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var foundGold =  document.getElementById("foundGold");
@@ -309,7 +332,7 @@ const fadeMusic = (song) =>{
 		if (song.volume >= .1) {
 		song.volume -= 0.1;	
 		};
-        }, 200);
+        }, 50);
 };
 
 const playMusic = (song) => {
@@ -337,6 +360,11 @@ const closeTitleScreen = () => {
 };
 
 
+const weekCardUp = (week) => {
+	let weekSlide = document.getElementById('week');
+	weekSlide.classList.remove("weekOffScreen");
+	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
+};
 
 
 // HEALING MARKET BUTTON
@@ -357,13 +385,12 @@ buyHealing.addEventListener("click", function(){
 		};
 });
 
-imReadyLeaveMarket.addEventListener("click", function(){
-	console.log(player1NameInput.value);
+goToBattle.addEventListener("click", function(){
 	player1.name = player1NameInput.value;
-	characterCreation.style.visibility = "hidden";
 	fadeMusic(ancientDream);
 	closeMarket();
 	player1GotoBattle();
+	weekCardUp(currentWeek);
 	refresh();
 });
 
@@ -451,6 +478,24 @@ function closeMarket(){
 	player1GotoCharacterSelect();
 	market.style.display = "none";
 };
+
+
+const changeMarketButton = () =>{
+	const advanceWeek = document.getElementById("advanceWeek");
+	goToBattle.style.display = "none";
+	advanceWeek.style.display = "initial";
+}; 
+
+advanceWeek.addEventListener("click", function(){
+	start();
+	weekCardUp();
+	document.getElementById('market').style.display = 'none';
+	slideNextEnemy.style.display = 'none';
+	player1GotoBattle();
+	fadeMusic(MoonLight);
+	playMusic(encounter1);
+});
+
 
 function openMarket(){
 
@@ -3219,6 +3264,7 @@ function start(){
 	slideStart.style.display = "none";
 	slidePlayer1Turn.style.display = "block";
 
+
 };
 
 
@@ -3310,6 +3356,7 @@ function enemy1Dead(){
 		currentEnemyCard = 0;
 	};
 
+	currentWeek += 1;
 	killCount = killCount + 1;
 	enemyArray[currentEnemyCard].currentHealth = 0;
 	tableKillScore.innerHTML = killCount;
@@ -3324,10 +3371,14 @@ function enemy1Dead(){
 
 function fightNext(){
 	fadeMusic(MoonLight);
+	weekCardUp();
 
-	setTimeout(function(){
-	playMusic(encounter1);
-	 }, 500);
+	if (encounter1.paused){	
+			playMusic(encounter1);
+	}
+
+
+
 	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";
