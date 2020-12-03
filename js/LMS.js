@@ -1,7 +1,8 @@
 
+
 var player1 = {
 	name: 'player1',
-	currentCharCard: 9,
+	currentCharCard: (Math.floor(Math.random() * 32) + 1)  ,
 	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
@@ -21,8 +22,8 @@ var player1 = {
 	
 	healthCard: 0,
 	damageCard: 0,
-	weapon1Card: 0,
-	armorCard: 0,
+	weapon1Card: 1,
+	armorCard: 1,
 	weapon2Card: 0,
 	attackCard: 0,
 	defenseCard: 0,
@@ -33,8 +34,8 @@ var player1 = {
 	damage: 0,
 	attack: 0,
 	defense: 0,
-	armor: 2,
-	weapon1: -1,
+	armor: 4,
+	weapon1: 4,
 	weapon2: -1,
 	weapon1Bonus: -1,
 	weapon2Bonus: -1,	
@@ -331,7 +332,7 @@ const fadeMusic = (song) =>{
 		if (song.volume >= .1) {
 		song.volume -= 0.1;	
 		};
-        }, 200);
+        }, 50);
 };
 
 const playMusic = (song) => {
@@ -3371,9 +3372,13 @@ function enemy1Dead(){
 function fightNext(){
 	fadeMusic(MoonLight);
 	weekCardUp();
-	setTimeout(function(){
-	playMusic(encounter1);
-	 }, 500);
+
+	if (encounter1.paused){	
+			playMusic(encounter1);
+	}
+
+
+
 	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";

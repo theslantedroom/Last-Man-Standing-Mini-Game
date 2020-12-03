@@ -2,9 +2,17 @@
 <html>
 <head>
 	<title>LAST MAN STANDING</title>
-<!-- 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+	<meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+	<style>
+	/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+		@font-face {
+  font-family: 'Press Start 2P';
+  src:   url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+		</style>
+
 	<link rel="icon" href="img/dead.jpg">
 	<!-- css Animate -->
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -16,7 +24,7 @@
 
 <body>
 
-    <div id="titleScreen">
+    <div class="titleScreen" id="titleScreen">
 		<h1>Last Man Standing</h1>
 		<p></p>
 		<p>Currently this app is a gauntlet of 36 enemies to battle through, a proof of concept, with plans to expand a campaign element later.</p>
@@ -31,7 +39,6 @@
 			<li>gameplay balancing</li>
 			<li>implement PYTHON backend for save games</li>
 			<li>port to Electron for steam and app stores</li>
-			<li>and more</li>
 		</ul>
 		<button onclick="closeTitleScreen()">Click to Begin your Adventure</button>
 	</div>
