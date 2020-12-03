@@ -559,7 +559,8 @@ justify-content: center;
 	top: -53vh;
 }
 #enemyHealthCounter{
-	font-size: 3.2vh;
+	line-height: 2;
+	font-size: 2vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
@@ -594,8 +595,8 @@ justify-content: center;
 	background-repeat: no-repeat;
 	width: 20vh;
 	height: 20vh;
-	top: 1%;
-	left: 1%;
+	top: 59%;
+	left: -4%;
 	transform: rotate(-101deg);
 	display: none;
 	z-index: 2;
@@ -656,10 +657,9 @@ justify-content: center;
 	font-size: 14px;
 	padding: 1px;
 	height: 10vh;
-	width: 100%;
 	margin-top: 1px;
 	table-layout: fixed;
-	width: 500px;
+	width: 90%;
 	margin: auto;
 }
 table, th, td {
