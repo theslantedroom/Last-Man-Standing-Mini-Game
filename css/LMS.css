@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 header{
 	display: flex;
 	flex-wrap: wrap;
@@ -50,19 +53,19 @@ h3{
 	color: rgb(165, 14, 14);
 }
 h4{
-	font-size: 1.2vh;
+	font-size: 1.3vh;
 	color: grey;
 	padding: 2px;
 	margin: 1px;
 }
 h5{
-	font-size: 1.3vh;
+	font-size: 1.5vh;
 	padding: 2px;
 	margin: 1px;
 }
 
 .titleScreen{
-	
+	width: 100%;
 	text-align: center;
 	color: azure;
 	position: relative;
@@ -114,7 +117,7 @@ h5{
 #characterCreation{
 	transition: all 2250ms ease-in-out;
 	color: white;
-	background-image: url(../img/BG.jpg);
+	background-image: url(../img/BGdark.jpg);
 	background-size: cover;
 	background-repeat: repeat-y;
 	min-width: 620px;
@@ -279,7 +282,7 @@ h5{
 /*MARKET*/
 #market {
 	color: white;
-	background-image: url(../img/BG.jpg);
+	background-image: url(../img/BGdark.jpg);
 	background-size: cover;
 	background-repeat: repeat;
 	text-align: center;
@@ -715,35 +718,4 @@ th {
 }
 
 
-/* Doors */
-.leftDoor{
-	position: absolute;
-	left: 0;
-	width: 50vw;
-	height: 100vh;
-	border: 1px solid rgb(247, 241, 241);
-	z-index: 7;
-	background: url("../img/doorL.jpg");
-	background-size: cover;
-	background-position: right top;
-
-}
-.rightDoor{
-	position: absolute;
-	right: 0;
-	width: 50vw;
-	height: 100vh;
-	background-color: rgb(125, 180, 235);
-	border: 1px solid rgb(243, 238, 238);
-	z-index: 7;
-	background-image: url("../img/doorR.jpg");
-	background-size: cover;
-	background-position: left top;
-}
-
-.leftDoorOpen,
-.rightDoorOpen{
-	width: 0vw;
-	transition: all 7000ms ease-in-out;
-}
 

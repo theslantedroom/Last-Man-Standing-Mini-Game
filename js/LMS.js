@@ -1,6 +1,6 @@
 
 
-var player1 = {
+let player1 = {
 	name: 'player1',
 	currentCharCard: (Math.floor(Math.random() * 32) + 1)  ,
 	gold: 5,
@@ -33,7 +33,7 @@ var player1 = {
 	currentHealth: 20,
 	damage: 0,
 	attack: 0,
-	defense: 0,
+	defense: 0,  //calculated total
 	armor: 4,
 	weapon1: 4,
 	weapon2: -1,
@@ -55,7 +55,6 @@ var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
 var healCostGold = 2;
-var enemyLoopCard = 1;
 var currentEnemyCard = 0;
 let currentWeek = 0;
 
@@ -362,7 +361,7 @@ const closeTitleScreen = () => {
 
 const weekCardUp = (week) => {
 	let weekSlide = document.getElementById('week');
-	// weekSlide.classList.remove("weekOffScreen");
+	weekSlide.classList.remove("weekOffScreen");
 	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
 };
 
@@ -3595,12 +3594,3 @@ function enemyAttack(){
 
 
 
-const openDoors = ()=>{
-	document.getElementById('rightDoor').classList.add("rightDoorOpen");
-	document.getElementById('leftDoor').classList.add("leftDoorOpen");
-};
-
-setTimeout(function(){
-	openDoors();
-	console.log("open"); 
-}, 400);

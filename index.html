@@ -6,7 +6,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
 	<style>
-	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 	@font-face {
   font-family: 'Press Start 2P';
   src:   url('/fonts/PressStart2P-Regular.ttf') format('truetype');
@@ -19,26 +19,21 @@
 		<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/LMS.css">
 </head>
-<div id="leftDoor" class="leftDoor"></div>
-<div id="rightDoor" class="rightDoor"></div>
 
 <body>
 
     <div class="titleScreen" id="titleScreen">
 		<h1>Last Man Standing</h1>
+		<h4>Mobile Mini Game - V1.05 In Development <a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target='blank'>The Github Repo </a>-  </h4>
 		<p></p>
-		<p>Currently this app is a gauntlet of 36 enemies to battle through, a proof of concept, with plans to expand a campaign element later.</p>
-		<h2>Features coming soon</h2>
+		<p>You have suffered a blow to the noggin'</p>
+		<h2>You forgot some things...</h2>
 		<ul style="list-style: none;">
-			<li>add music</li>
-			<li>replace all sounds</li>
-			<li>add campaign </li>
-			<li>CSS and visual layout design </li>
-			<li>work on  the animations and UI</li>
-			<li>general cleanup and code optimization</li>
-			<li>gameplay balancing</li>
-			<li>implement PYTHON backend for save games</li>
-			<li>port to Electron for steam and app stores</li>
+			<li>where was i born?</li>
+			<li>what is my name?</li>
+			<li>how did I get here?</li>
+			<li>what is my purpose?</li>
+
 		</ul>
 		<button onclick="closeTitleScreen()">Click to Begin your Adventure</button>
 	</div>
@@ -48,8 +43,9 @@
 
 <!-- Character Create -->
 <div id="characterCreation">
-		<h1>Last Man Standing - Alpha Testing</h1>
-		<h4>Mobile Mini Game - V1.05 In Development <a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target='blank'>The Github Repo </a>- regular updates </h4>
+		<h1>You find youself in what appears to be a barn.</h1>
+		<h2>Hazily you recall your name.</h2>
+		
 	
 		<div id="nameConfirm">
 			<label class="tooltip" for="player1NameInput">Name:  <span class="tooltiptext">Give Yourself a cool name!</span></label>
@@ -63,10 +59,11 @@
 			<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
 		</div>	
 	
-		<h2>You have <span id='player1Gold2'></span> Gold</h2>
-		<h5>Your objective is to defeat all 36 opponents. <br> Earn gold by defeating enemies and upgrade your equipment after battle to succeed. </h5>
-		<h5>Don't forget to heal between battle if neccesary.</h5>
-		<p>Visit the Market to buy some gear before you begin.</p>
+		<h5>You remember now. You are a gladiator.  </span>You fight in a pit for the entertainment of others.</h5>
+		<h5>You won your last fight, you drank yourself stupid. <br> It seems you must make a trip to the market. </h5>
+		<h5>You lost all of your belongings....and you have a fight this afternoon.</h5>
+		<p>you find your remaining winnings in your pocket, <span id='player1Gold2'></span> gold. better buy some new gear before you fight.</p>
+		
 		<button id="gotoMarket" onclick="openMarket()">Continue to MARKET</button><br>		
 </div>
 
@@ -83,8 +80,8 @@
 			<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
 		</div>
 
-		<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
-		<p>Get ready, </p>
+		<p id="welcomeMarket">"Hey son! You look like you just rolled out of a barn, and smell it too!"</p>
+		<p>What do you need? Looks like you need a clean shirt..</p>
 		<button id="goToBattle">go to battle</button>
 		<button id="advanceWeek">Advance</button>
 		<h2>You have <span id="player1Gold"></span> gold.</h2>
@@ -235,7 +232,7 @@
 			<div id="marketCharShift">
 					<div id="player1AtMarket"></div>
 					<button id="buyHealing">Rest and Heal for <span id="healCost">...</span> gold?</button>
-					<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
+					<h3>click on owned gear to discard</h3>
 			</div>
 	</div>
 </div>
