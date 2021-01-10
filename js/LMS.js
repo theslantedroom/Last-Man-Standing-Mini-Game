@@ -236,7 +236,7 @@ const discardPreview = document.getElementById("discardPreview");
 var characterCreation = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
-var goToBattle = document.getElementById("goToBattle");
+var goTo1a = document.getElementById("goTo1a");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var foundGold =  document.getElementById("foundGold");
@@ -245,7 +245,6 @@ var player1AtMarket = document.getElementById('player1AtMarket');
 var playArea = document.getElementById('playArea');
 
 // Visual components
-var player1CharCard = document.getElementById("player1CharCard");
 var player1HealthCard = document.getElementById('player1HealthCard');
 var player1DamageCard = document.getElementById('player1DamageCard');
 var player1Weapon1Card = document.getElementById('player1Weapon1Card');
@@ -318,6 +317,8 @@ var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll")
 
 var healCost = document.getElementById("healCost");
 var buyHealing = document.getElementById("buyHealing");
+let battleScreen = document.getElementById("battleScreen");
+let battleFooter = document.getElementById("battleFooter");
 
 
 const fadeMusic = (song) =>{
@@ -351,10 +352,13 @@ const playSound = (sound) => {
 var titleScreen = document.getElementById("titleScreen");
 
 const closeTitleScreen = () => {
-	// titleScreen.style.display = "none";
+	characterCreation.style.display = 'block';
+	titleScreen.style.display = "none";
 	titleScreen.classList.add("offScreenTop");
 	ancientDream.play();
-
+	let closeTitleScreen = document.getElementById('closeTitleScreen');
+	closeTitleScreen.style.display = 'none';
+	document.getElementById("nameConfirmButton").style.display = 'block';
 
 };
 
@@ -384,12 +388,17 @@ buyHealing.addEventListener("click", function(){
 		};
 });
 
-goToBattle.addEventListener("click", function(){
+goTo1a.addEventListener("click", function(){
 	player1.name = player1NameInput.value;
 	fadeMusic(ancientDream);
 	closeMarket();
 	player1GotoBattle();
 	weekCardUp(currentWeek);
+	buyHealing.style.display = 'none';
+	goTo1a.style.display = 'none';
+	battleScreen.style.display = 'block';
+	battleFooter.style.display = "block";
+
 	refresh();
 });
 
@@ -398,11 +407,20 @@ const resetHealButton = () => {
 	document.getElementById("healCost").innerHTML = healCostGold;
 };
 
+// confirm button
 function nameToPlayer1Card(){
 	var player1Namep = document.createElement("div"); //place name on card
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
+	player1.name = player1NameInput.value
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
 	nameConfirm.style.display = 'none';
+	document.getElementById("nameConfirmButton").style.display = 'none';
+	document.getElementById("completeChar").style.display = 'block';
+	document.getElementById("chooseCharacterWindow").style.display = 'block';
+	document.getElementById("chooseCharacter").style.display = 'block';
+	player1CharCard.style.display = 'inline-block';
+	document.getElementById("nametag1").innerText = 'It is raining';
+	document.getElementById("nametag2").innerText = 'You see your reflection in a puddle';
 };
 
 function clearDiscardPopUp(){
@@ -425,7 +443,7 @@ clearDiscardPopUp();
 // document.getElementById("player1CharCard").insertBefore(document.createElement("div"), player1CharCard.firstChild);
 
 function player1GotoCharacterSelect(){
-	chooseCharacter.insertBefore(player1CharCard, chooseCharacter.childNodes[2]);
+	chooseCharacter.insertBefore(player1CharCard, chooseCharacter.childNodes[1]);
 };
 
 function player1GotoBattle(){
@@ -434,6 +452,7 @@ function player1GotoBattle(){
 
 function player1GotoMarket(){
 	player1AtMarket.appendChild(player1CharCard);
+	document.getElementById("buyHealing").style.display = 'block';
 	
 };
 
@@ -481,7 +500,7 @@ function closeMarket(){
 
 const changeMarketButton = () =>{
 	const advanceWeek = document.getElementById("advanceWeek");
-	goToBattle.style.display = "none";
+	goTo1a.style.display = "none";
 	advanceWeek.style.display = "initial";
 }; 
 
@@ -493,6 +512,10 @@ advanceWeek.addEventListener("click", function(){
 	player1GotoBattle();
 	fadeMusic(MoonLight);
 	playMusic(encounter1);
+	advanceWeek.style.display = 'none';
+	battleScreen.style.display = 'block';
+	battleFooter.style.display = 'block';
+	buyHealing.style.display = 'none';
 });
 
 
@@ -507,37 +530,60 @@ function openMarket(){
 	player1GotoMarket();
 	resetHealButton();
 	clearStore();
-	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	market.style.display = "block";
+	document.getElementById("completeChar").style.display = "none";
+	goTo1a.style.display = "block";
+	openInventory();
+	battleScreen.style.display = 'none';
+	battleFooter.style.display = 'none';
+
 };
+
+const openInventory = () => {
+	player1CharCard.style.display = 'block';
+	document.getElementById("storeItemsOnehandWeapons").style.display = "none";
+	document.getElementById("storeItemsTwoHanded").style.display = "none";
+	document.getElementById("storeItemsRanged").style.display = "none";
+	document.getElementById("storeItemsShields").style.display = "none";
+	document.getElementById("storeItemsArmor").style.display = "none";
+	document.getElementById("storeItemsTraining").style.display = "none";
+	document.getElementById("discardText").innerHTML = "Click on gear to discard";
+	cancelBuyClose();
+}
 
 function weaponStoreOneHandButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "are you gonna dual wield? or use a shield?";
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreTwoHandButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "mighty damage from these weapons";
 	document.getElementById("storeItemsTwoHanded").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreRangedButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "deadly is the bow - they hit frequently";
 	document.getElementById("storeItemsRanged").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreShieldButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "a trusty shield - makes you harder to hit";
 	document.getElementById("storeItemsShields").style.display = "flex";
 	playSound(marketCategory);
 };
 function armorStoreButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "it is important to protect yourself";
 	document.getElementById("storeItemsArmor").style.display = "flex";
 	playSound(marketCategory);
 };
 function trainingStoreButton(){
 	clearStore();
+	document.getElementById("discardText").innerHTML = "these skills could save your life";
 	document.getElementById("storeItemsTraining").style.display = "flex";	
 	playSound(marketCategory);
 };
@@ -548,6 +594,9 @@ function clearStore(){
 	document.getElementById("storeItemsShields").style.display = "none";
 	document.getElementById("storeItemsArmor").style.display = "none";
 	document.getElementById("storeItemsTraining").style.display = "none";
+	document.getElementById("discardText").innerHTML = "";
+	player1CharCard.style.display = "none";
+
 	// cancelBuyClose();
 };
 
