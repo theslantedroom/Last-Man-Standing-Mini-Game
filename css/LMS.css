@@ -239,6 +239,7 @@ h5{
 	background-size: 100%;
 	background-position: center;
 	background-size: contain;
+	font-size: 11px;
 }
 .charcardCenter{
 	transition: all 2250ms ease-in-out;
@@ -263,7 +264,7 @@ h5{
 	transform: rotate(-10deg);
 }
 #player1DefenseCounter{
-	line-height: 1.5;
+	line-height: 3.5;
 	font-size: 3.4vh;
 	font-weight: bold;
 	color: black;
@@ -380,7 +381,7 @@ justify-content: center;
 	position: absolute;
 	background-color: white;
 	z-index: 3;
-
+	width: 100%;
 	display: none;
 }
 #buyPreview{
@@ -493,7 +494,7 @@ justify-content: center;
 	background-image: url(../img/white.jpg);
 	background-size: cover;
 }
-#rollBar button{
+/* #rollBar button{
 font-size: 20px;
 height: 50px;
 width: 90%;
@@ -503,7 +504,31 @@ left: 50%;
 transform: translate(-50%, -50%);
 bottom: 5px;
 margin: 0;
+} */
+
+/* #nextEnemy{
+font-size: 20px;
+height: 50px;
+width: 90%;
+position: absolute;
+bottom: 5px;
+left: 50%;
+transform: translate(-50%, -50%);
+bottom: 5px;
+margin: 0;
+} */
+
+.battleButtonBottom{
+font-size: 20px;
+height: 50px;
+width: 90%;
+position: absolute;
+bottom: 5px;
+left: 50%;
+transform: translate(-50%, -50%);
+margin: 0;
 }
+
 #rollBar div{
 
 }

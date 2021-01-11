@@ -420,7 +420,7 @@ function nameToPlayer1Card(){
 	document.getElementById("chooseCharacterWindow").style.display = 'block';
 	document.getElementById("chooseCharacter").style.display = 'block';
 	player1CharCard.style.display = 'inline-block';
-	document.getElementById("nametag1").innerText = 'It is raining';
+	document.getElementById("nametag1").innerText = 'Your name is '+ player1.name;
 	document.getElementById("nametag2").innerText = 'You see your reflection in a puddle';
 };
 
@@ -1107,16 +1107,17 @@ var buyA13 = document.querySelectorAll("img")[52];
 var buyA14 = document.querySelectorAll("img")[53];
 // Training
 var buyT1 = document.querySelectorAll("img")[54];
-var buyT2 = document.querySelectorAll("img")[55];
-var buyT3 = document.querySelectorAll("img")[56];
-var buyT4 = document.querySelectorAll("img")[57];
-var buyT5 = document.querySelectorAll("img")[58];
+var buyT2 = document.querySelectorAll("img")[56];
+var buyT3 = document.querySelectorAll("img")[58];
+var buyT4 = document.querySelectorAll("img")[55];
+var buyT5 = document.querySelectorAll("img")[57];
 var buyT6 = document.querySelectorAll("img")[59];
+
 var buyT7 = document.querySelectorAll("img")[60];
-var buyT8 = document.querySelectorAll("img")[61];
-var buyT9 = document.querySelectorAll("img")[62];
-var buyT10 = document.querySelectorAll("img")[63];
-var buyT11 = document.querySelectorAll("img")[64];
+var buyT8 = document.querySelectorAll("img")[62];
+var buyT9 = document.querySelectorAll("img")[64];
+var buyT10 = document.querySelectorAll("img")[61];
+var buyT11 = document.querySelectorAll("img")[63];
 var buyT12 = document.querySelectorAll("img")[65];
 
 const updateBuyPreviewDualWield = () => buyPreview.style.backgroundImage = "url('img/market/w" + shoppingCartRightHand.weapon1Card + ".jpg')";
