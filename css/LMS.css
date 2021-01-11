@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	overflow: hidden;
 	font-family: 'Press Start 2P', Times, serif ;
 	/* font-size: 20px; */
@@ -11,7 +14,6 @@ body{
 	/* height: 100vh;
 	min-width: 550px;
 	max-width: 1700px; */
-
 	background-repeat: repeat-y;
 	width: 100%;
 	margin: auto;
@@ -22,6 +24,7 @@ body{
 	/* background-image: url(../img/forestPath.jpg);
 	background-size: cover; */
 	overflow: hidden;
+	max-width: 1000px;
 	box-sizing: border-box;
 	position: relative;
 	border: 1px solid rgb(32, 7, 78);
@@ -38,6 +41,7 @@ body{
 	border: 1px solid rgb(114, 179, 76);
 	height: 15vh;
 	width: 100%;
+	max-width: 1000px;
 	overflow: hidden;
 	box-sizing: border-box;
 	position: relative;
@@ -67,12 +71,12 @@ button:hover{
 	font-size: 20px;
 }
 p {
-	/* font-size: 2vh; */
+	font-size: 1.5vh;
 	padding: 0px;
 	margin: 0px;
-	font-size: 11px;
-	text-align: left;
-	line-height: 1.6;
+	/* font-size: 11px; */
+	text-align: center;
+	line-height: 1.2;
 }
 h1{
 	font-size: 12px;
@@ -144,6 +148,7 @@ h5{
 	display: none;
 }
 #characterCreation{
+	margin: 0;
 	/* overflow: hidden; */
 	box-sizing: border-box;
 	transition: all 250ms ease-in-out;
@@ -163,7 +168,7 @@ h5{
 	left: 0px; */
 	/* width: 500px; */
 	height: 100%;
-	border: 10px solid black;
+	border: 1px solid black;
 	z-index: 1;
 	display: none;
 }
@@ -354,9 +359,10 @@ h5{
 justify-content: center;
 }
 #storeImages img{
+	position: relative;
 	margin: 2px;
-	width: 18vw;
-	height: 18vw;
+	width: 39%;
+	height: auto;
 	cursor: pointer;
 	border: 1px solid black;
 	border-radius: 8px;
@@ -437,7 +443,7 @@ justify-content: center;
 	margin-right: 10px;
 } */
 #battleScreen{
-	width: 100vw;
+	width: 100%;
 	position: absolute;
 	top: 10px;
 	left: 0;
@@ -476,8 +482,9 @@ justify-content: center;
 	transform: rotate(-20deg);
 }
 #rollBar{
+	/* font-size: 2.5vh; */
 	box-sizing: border-box;
-	height: 30vh;
+	height: 42vh;
 	border-radius: 5px;
 	border: 3px solid black;
 	font-weight: bold;
@@ -487,7 +494,18 @@ justify-content: center;
 	background-size: cover;
 }
 #rollBar button{
-font-size: 4vh;
+font-size: 20px;
+height: 50px;
+width: 90%;
+position: absolute;
+bottom: 5px;
+left: 50%;
+transform: translate(-50%, -50%);
+bottom: 5px;
+margin: 0;
+}
+#rollBar div{
+
 }
 #slidePlayer1Turn{
 display: none;
@@ -573,7 +591,7 @@ justify-content: center;
 	border: 1px solid black;
 	width: 24vh;
 	height: 24vh;
-	top: -53vh;
+	top: -37vh;
 }
 #critPopUp{
 	margin: auto;
@@ -584,7 +602,7 @@ justify-content: center;
 	border: 1px solid black;
 	width: 24vh;
 	height: 24vh;
-	top: -53vh;
+	top: -37vh;
 }
 #logWeapon1PopUp{
 	margin: auto;
@@ -595,7 +613,7 @@ justify-content: center;
 	border: 1px solid black;
 	width: 20vh;
 	height: 20vh;
-	top: -53vh;
+	top: -37vh;
 }
 #logWeapon2PopUp{
 	margin: auto;
@@ -606,7 +624,7 @@ justify-content: center;
 	border: 1px solid black;
 	width: 20vh;
 	height: 20vh;
-	top: -53vh;
+	top: -37vh;
 }
 #enemyHealthCounter{
 	line-height: 2;
@@ -670,27 +688,27 @@ justify-content: center;
 
 /* Weeks */
 .week{
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
 	margin-top: 30px;
 	width: 29vh;
 	height: 60vh;
-	padding: 80px;
+	padding: 0px;
 	background-image: url("../img/theLongQuest1.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;
-	z-index: 1;
+	z-index: 11;
 	transition: 550ms all ease;
 	color: thistle;
 	margin: auto;
 }
 .weekOffScreen{
-	top: -200%;
-	transition: 550ms all ease;
+display: none;
 }	
 #closeWeek{
 	position: relative;
+	z-index: 11;
 	/* left: -151px; */
 }
 #advanceWeek{

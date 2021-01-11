@@ -94,6 +94,7 @@ const closeWeek = document.getElementById("closeWeek");
 
 closeWeek.addEventListener("click", function(){
 	document.getElementById('week').classList.add("weekOffScreen");
+	battleScreen.style.display = 'block';
 });
 
 
@@ -364,6 +365,7 @@ const closeTitleScreen = () => {
 
 
 const weekCardUp = (week) => {
+	battleScreen.style.display = 'none';
 	let weekSlide = document.getElementById('week');
 	weekSlide.classList.remove("weekOffScreen");
 	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
@@ -396,7 +398,6 @@ goTo1a.addEventListener("click", function(){
 	weekCardUp(currentWeek);
 	buyHealing.style.display = 'none';
 	goTo1a.style.display = 'none';
-	battleScreen.style.display = 'block';
 	battleFooter.style.display = "block";
 
 	refresh();
@@ -448,6 +449,7 @@ function player1GotoCharacterSelect(){
 
 function player1GotoBattle(){
 	playArea.insertBefore(player1CharCard, playArea.childNodes[0]);
+	player1CharCard.style.display = 'block';
 };
 
 function player1GotoMarket(){
@@ -513,9 +515,9 @@ advanceWeek.addEventListener("click", function(){
 	fadeMusic(MoonLight);
 	playMusic(encounter1);
 	advanceWeek.style.display = 'none';
-	battleScreen.style.display = 'block';
 	battleFooter.style.display = 'block';
 	buyHealing.style.display = 'none';
+	
 });
 
 
