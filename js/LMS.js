@@ -188,10 +188,10 @@ const nextMarketText = () => {
 		questArray[0].text = 'zookeeper - "how intriguing, what beautiful paws"'
 		break;
 	case 34:
-		questArray[0].text = 'gaurd - "the Dominator is real SOB i hear"'
+		questArray[0].text = 'guard - "the Dominator is real SOB i hear"'
 		break;
 	case 35:
-		questArray[0].text = 'the Dominator get back up.. "Im not finished"'
+		questArray[0].text = 'the Dominator gets back up.. "Im not finished"'
 		break;
 	
 	}
@@ -312,7 +312,7 @@ enemyArray.push(gaurd);
 const catWarrior = new Enemy1(28,20,20,14,10,-1,-1,-1,1,0,'Peasant');
 enemyArray.push(peasant);
 
-const bladeMaid = new Enemy1(29,22,22,10,8,-1,-1,-1,0,2,'bladeMaid');
+const bladeMaid = new Enemy1(29,22,22,10,8,-1,-1,-1,2,2,'bladeMaid');
 enemyArray.push(bladeMaid);
 
 const abuser = new Enemy1(30,20,20,13,8,-1,-1,-1,3,0,'abuser');
@@ -3597,7 +3597,7 @@ function enemy1Dead(){
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
-		alert("YOU WIN, this is as far as i am in develpoment so far. Thanks for playin");
+		alert("YOU WIN, this is as far as i am in develpoment so far. Thanks for playin.  You may continue to play until you die");
 		currentEnemyCard = 0;
 	};
 
