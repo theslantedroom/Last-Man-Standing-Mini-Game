@@ -91,7 +91,7 @@
 							<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
 						</div>
 
-						<p id="welcomeMarket">You smell of hangover as you enter the weaponsmith's home</p>
+						<p id="welcomeMarket">xxx</p>
 						<h2>You have <span id="player1Gold"></span> gold.</h2>
 					</div>
 
@@ -117,7 +117,7 @@
 						</div>
 
 						<div id="confirmDiscardWindow">
-							<p>Are you sure you want to discard this item? You will not recieve and refund.</p>
+							<p>"I aint buyin that garbage" - weaponsmith. Are you sure you want to discard this item?</p>
 							
 							<button id="discardButtonRightHand">YES discard this item</button>
 							<button id="discardButtonArmor">YES discard this item</button>
@@ -272,9 +272,9 @@
 
 				<div id="slideStart">
 					<div class="lighter"></div>
-					<div><p>You enter the arena. The sand is dry and hot.</p></div>
+					<div><p>Welcome to the Arena</p></div>
 					<div><p> <br>
-					The trumpets blast and the crowd is subdued as a rather large ant enters from the opposing portcullis </p></div>
+					The sand is dry and hot. A giant ant stands waiting.</p></div>
 					<div><button class="battleButtonBottom" onclick="start()">READY</button></div>
 				</div>
 
@@ -336,11 +336,11 @@
 					<div class="lighter"><p id="damageRollResultK">...</p> </div>
 					<div><p id="damageResultLine2K">....</p></div>
 					<div><p id="damageResultLine3K">....</p></div>
-					<div id="nextEnemy"><button class="battleButtonBottom" onclick="nextEnemy()">Search remains...</button></div>
+					<div id="nextEnemy"><button class="battleButtonBottom" onclick="nextEnemy()">sell remains...</button></div>
 				</div>
 
 				<div id="slideNextEnemy">
-					<p>Searching the body you find <span id="foundGold">x gold</span> gold.</p>
+					<p>Trader - <br> "I'll give you <span id="foundGold">x gold</span> gold."</p>
 					<button class="battleButtonBottom" onclick="openMarket(), changeMarketButton() ">Go to Market</button>
 					<p>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
 					<button onclick="fightNext()">Keep fighting. Next enemy</button>

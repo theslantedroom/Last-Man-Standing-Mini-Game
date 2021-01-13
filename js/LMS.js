@@ -1,6 +1,6 @@
 
 
-let player1 = {
+const player1 = {
 	name: 'player1',
 	currentCharCard: (Math.floor(Math.random() * 32) + 1)  ,
 	gold: 5,
@@ -14,12 +14,10 @@ let player1 = {
 	defenseBonusShield2: 0,
 	damageBonusShield1: 0,
 	damageBonusShield2: 0,
-
 	healthBonusSkill: 0,
 	damageBonusSkill: 0,
 	attackBonusSkill: 0,
 	defenseBonusSkill: 0,
-	
 	healthCard: 0,
 	damageCard: 0,
 	weapon1Card: 1,
@@ -27,7 +25,6 @@ let player1 = {
 	weapon2Card: 0,
 	attackCard: 0,
 	defenseCard: 0,
-
 	// in math calculation
 	maxHealth: 20,
 	currentHealth: 20,
@@ -39,15 +36,15 @@ let player1 = {
 	weapon2: -1,
 	weapon1Bonus: -1,
 	weapon2Bonus: -1,	
-
 	kills: 0,
 	deaths: 0,
 };
-
+// Global Stats
 var killCount = 0;
 var deathCount = 0;
 var highScore = 0;
 var gamesPlayed = 0;
+// Combat DICE
 var battleNumber = 1;
 var goldRewardDice = 6;
 var attackRollE = 0;
@@ -77,17 +74,135 @@ class Enemy1 {
   }
 }
 
-
 // Construct Quest
 const questArray = [];
 class Quest1 {
 	constructor(week, text) {  // Constructor
 		this.week = week;
 		this.text = text;
-
 	}
   }
-const week1 = new Quest1(1,'start map');
+// update market text 
+const nextMarketText = () => {
+	switch (questArray[0].week) {
+	case 0:
+		questArray[0].text = 'you hear rumors in the crowd as you browse the weapon shop'
+		break;
+	case 1:
+		questArray[0].text = 'hunter - "heard they caught a huge wolf in Mountain Pass."'
+		break;
+	case 2:
+		questArray[0].text = 'farmers wife- "looks like a low life criminal to me"'
+		break;
+	case 3:
+		questArray[0].text = 'child - "timmy saw a dead man moving"'
+		break;
+	case 4:
+		questArray[0].text = 'tinker - "yes! it is magnificent, the wonder!"'
+		break;
+	case 5:
+		questArray[0].text = 'barkeep - "she looks like an independant woman"'
+		break;
+	case 6:
+		questArray[0].text = 'trader - "a real Gladiator, thats what it says here"'
+		break;
+	case 7:
+		questArray[0].text = 'merchant - "darn devil made of stone"'
+		break;
+	case 8:
+		questArray[0].text = 'painter - "I heard it howling in the night, I did"'
+		break;
+	case 9:
+		questArray[0].text = 'soldier - "yeah, we caught him raiding caravans"'
+		break;
+	case 10:
+		questArray[0].text = 'little boy - "he was scary, mom, and little like me"'
+		break;
+	case 11:
+		questArray[0].text = 'baker - "yeah they pay them well I hear"'
+		break;
+	case 12:
+		questArray[0].text = 'craftswoman - "I wish i looked like her, shes so strong"'
+		break;
+	case 13:
+		questArray[0].text = 'shepard - "I hope he dies in there, I saw them bullying my sheep"'
+		break;
+	case 14:
+		questArray[0].text = 'shoe maker - "she is my favorite, but my wife likes the Dom"'
+		break;
+	case 15:
+		questArray[0].text = 'halfwit - "duh... hit.. smash hard"'
+		break;
+	case 16:
+		questArray[0].text = 'influencer - "I would kill to get a selfie killing her!"'
+		break;
+	case 17:
+		questArray[0].text = 'zookeeper - "this is a #@!$& SHAME! "'
+		break;
+	case 18:
+		questArray[0].text = 'priest - "oh all that is Holy! save me"'
+		break;
+	case 19:
+		questArray[0].text = 'Lady - "Oh how I relish his bravery"'
+		break;
+	case 20:
+		questArray[0].text = 'street urchin - "I bet he is ugly under the mask"'
+		break;
+	case 21:
+		questArray[0].text = 'drunk - "$%^# dommies boy! he gun win hic!"'
+		break;
+	case 22:
+		questArray[0].text = 'zookeeper - "Oh COME on! why? Its so majestic"'
+		break;
+	case 23:
+		questArray[0].text = 'fletcher - "may they fly true, so I can sell some more"'
+		break;
+	case 24:
+		questArray[0].text = 'Lord - "he disobeyed MY wife! Intolerable"'
+		break;
+	case 25:
+		questArray[0].text = 'victim- "justice is served this day, God willing"'
+		break;
+	case 26:
+		questArray[0].text = 'Stable boy - "the horses scars.. ashonishing"'
+		break;
+	case 27:
+		questArray[0].text = 'captain - "yeah, thats wats he got comin when he drinkin on duty eh"'
+		break;
+	case 28:
+		questArray[0].text = 'zookeeper - "why do I keep coming here...what even is this?"'
+		break;
+	case 29:
+		questArray[0].text = 'studdly lumberjack - "she made your blade, eh Duke?"'
+		break;
+	case 30:
+		questArray[0].text = 'fisherman - "she said if I stop, she would get the cudgel again"'
+		break;
+	case 31:
+		questArray[0].text = 'Hag - "looks like she just got out of a pot of stew"'
+		break;
+	case 32:
+		questArray[0].text = 'Maid - "are they even real? oh imagine"'
+		break;
+	case 33:
+		questArray[0].text = 'zookeeper - "how intriguing, what beautiful paws"'
+		break;
+	case 34:
+		questArray[0].text = 'gaurd - "the Dominator is real SOB i hear"'
+		break;
+	case 35:
+		questArray[0].text = 'the Dominator get back up.. "Im not finished"'
+		break;
+	
+	}
+	
+	welcomeMarket.innerText = questArray[0].text;
+};
+
+
+
+
+const week1 = new Quest1(0,'start map');
 questArray.push(week1);
 
 const closeWeek = document.getElementById("closeWeek");
@@ -100,6 +215,14 @@ closeWeek.addEventListener("click", function(){
 });
 
 
+const weekCardUp = (week) => {
+	battleScreen.style.display = 'none';
+	let weekSlide = document.getElementById('week');
+	weekSlide.classList.remove("weekOffScreen");
+	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
+	questArray[0].week += 1;
+	nextMarketText();
+};
 
 // Enemy Objects
 const giantAnt = new Enemy1(0,4,4,4,4,-1,-1,-1,0,0,'Giant Ant');
@@ -323,7 +446,7 @@ var healCost = document.getElementById("healCost");
 var buyHealing = document.getElementById("buyHealing");
 let battleScreen = document.getElementById("battleScreen");
 let battleFooter = document.getElementById("battleFooter");
-
+let welcomeMarket = document.getElementById("welcomeMarket");
 
 const fadeMusic = (song) =>{
 	var fadeTimer = setInterval(function() {
@@ -399,12 +522,6 @@ const closeTitleScreen = () => {
 };
 
 
-const weekCardUp = (week) => {
-	battleScreen.style.display = 'none';
-	let weekSlide = document.getElementById('week');
-	weekSlide.classList.remove("weekOffScreen");
-	weekSlide.style.backgroundImage = "url('img/theLongQuest" + currentWeek + ".jpg')";
-};
 
 
 // HEALING MARKET BUTTON
@@ -3366,6 +3483,7 @@ function refresh(){
 		
 		healCost.innerHTML = healCostGold;
 		updateGold();
+		nextMarketText();
 };
 
 refresh();
