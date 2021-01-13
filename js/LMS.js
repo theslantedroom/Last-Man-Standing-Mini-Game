@@ -95,6 +95,8 @@ const closeWeek = document.getElementById("closeWeek");
 closeWeek.addEventListener("click", function(){
 	document.getElementById('week').classList.add("weekOffScreen");
 	battleScreen.style.display = 'block';
+	document.getElementById('closeWeek').style.display = 'none';
+	document.getElementById('battleFooter').style.display = 'block';
 });
 
 
@@ -264,6 +266,7 @@ var enemy1CharCard = document.getElementById("enemy1Idle");
 var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
 
 // TABLE Stats 
+document.getElementById("player1NameInput").defaultValue = "Unknown Hero";
 var nameConfirm = document.getElementById("nameConfirm");
 var player1Name = document.getElementById("player1Name");
 var player1GoldTable = document.getElementById("player1GoldTable");
@@ -338,12 +341,14 @@ const fadeMusic = (song) =>{
 
 const playMusic = (song) => {
 	song.currentTime = 0;
+	song.volume = .1;
 	song.play();
 
 };
 
 const playSound = (sound) => {
 	sound.currentTime = 0;
+	sound.volume = .0;
 	sound.play();
 };
 
@@ -352,11 +357,41 @@ const playSound = (sound) => {
 // Screens
 var titleScreen = document.getElementById("titleScreen");
 
+
+function mutePage() {
+    document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
+}
+
+// MUSIC TOGGLE
+let musicToggle = document.getElementById("musicToggle");
+musicToggle.addEventListener("click", function() {
+	Array.prototype.slice.call(document.querySelectorAll('audio')).forEach(function(audio) {
+		audio.muted = true;
+	});
+	musicToggle.style.display = 'none';
+  });
+
+// document.getElementById("inventory").addEventListener("click", function() {
+// 	alert("Inventory");
+// });
+
+// var musicToggle = document.getElementById("musicToggle");
+// musicToggle.onclick = function() {
+//   state = !state;
+//   if (state) {
+//     button.innerHTML = "ON";
+//   } else {
+//     button.innerHTML = "OFF";
+//   }
+// }
+
+
+
 const closeTitleScreen = () => {
 	characterCreation.style.display = 'block';
 	titleScreen.style.display = "none";
 	titleScreen.classList.add("offScreenTop");
-	ancientDream.play();
+	playMusic(ancientDream);
 	let closeTitleScreen = document.getElementById('closeTitleScreen');
 	closeTitleScreen.style.display = 'none';
 	document.getElementById("nameConfirmButton").style.display = 'block';
@@ -399,6 +434,8 @@ goTo1a.addEventListener("click", function(){
 	buyHealing.style.display = 'none';
 	goTo1a.style.display = 'none';
 	battleFooter.style.display = "block";
+	document.getElementById('closeWeek').style.display = 'block';
+	document.getElementById('battleFooter').style.display = 'none';
 
 	refresh();
 });
@@ -510,12 +547,14 @@ advanceWeek.addEventListener("click", function(){
 	start();
 	weekCardUp();
 	document.getElementById('market').style.display = 'none';
+	document.getElementById('closeWeek').style.display = 'block';
+	document.getElementById('battleFooter').style.display = 'none';
 	slideNextEnemy.style.display = 'none';
 	player1GotoBattle();
 	fadeMusic(MoonLight);
 	playMusic(encounter1);
 	advanceWeek.style.display = 'none';
-	battleFooter.style.display = 'block';
+	battleFooter.style.display = 'none';
 	buyHealing.style.display = 'none';
 	
 });
@@ -550,41 +589,48 @@ const openInventory = () => {
 	document.getElementById("storeItemsArmor").style.display = "none";
 	document.getElementById("storeItemsTraining").style.display = "none";
 	document.getElementById("discardText").innerHTML = "Click on gear to discard";
+	document.getElementById("inventory").style.display = "none";
 	cancelBuyClose();
 }
 
 function weaponStoreOneHandButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "are you gonna dual wield? or use a shield?";
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreTwoHandButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "mighty damage from these weapons";
 	document.getElementById("storeItemsTwoHanded").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreRangedButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "deadly is the bow - they hit frequently";
 	document.getElementById("storeItemsRanged").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreShieldButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "a trusty shield - makes you harder to hit";
 	document.getElementById("storeItemsShields").style.display = "flex";
 	playSound(marketCategory);
 };
 function armorStoreButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "it is important to protect yourself";
 	document.getElementById("storeItemsArmor").style.display = "flex";
 	playSound(marketCategory);
 };
 function trainingStoreButton(){
 	clearStore();
+	document.getElementById("inventory").style.display = "block";
 	document.getElementById("discardText").innerHTML = "these skills could save your life";
 	document.getElementById("storeItemsTraining").style.display = "flex";	
 	playSound(marketCategory);
@@ -597,6 +643,9 @@ function clearStore(){
 	document.getElementById("storeItemsArmor").style.display = "none";
 	document.getElementById("storeItemsTraining").style.display = "none";
 	document.getElementById("discardText").innerHTML = "";
+	document.getElementById("confirmBuyWindow").style.display = "none";
+	document.getElementById("confirmDiscardWindow").style.display = "none";
+	document.getElementById("inventory").style.display = "none";
 	player1CharCard.style.display = "none";
 
 	// cancelBuyClose();
@@ -761,6 +810,8 @@ function okBuyClear(){
 	okBuyAttack.style.display = "none";
 	okBuyDefense.style.display = "none";
 	okBuyArmor.style.display = "none";
+
+
 };
 
 function cannotAfford(){
@@ -821,41 +872,50 @@ cancelBuyButton.addEventListener("click", function() {
 okBuyRightButton.addEventListener("click", function() {
  checkoutRightHand();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyLeftButton.addEventListener("click", function() {
  checkoutLeftHand();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
+
 });
 
 okBuyTwoHanded.addEventListener("click", function() {
  checkoutTwoHanded();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyArmor.addEventListener("click", function() {
  checkoutArmor();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyHealth.addEventListener("click", function() {
  checkoutHealth();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyDamage.addEventListener("click", function() {
  checkoutDamage();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyAttack.addEventListener("click", function() {
  checkoutAttack();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 okBuyDefense.addEventListener("click", function() {
  checkoutDefense();
  confirmBuyWindow.style.display = 'none';
+ openInventory();
 });
 
 
@@ -3261,8 +3321,24 @@ function refresh(){
 		player1DefenseCard.style.backgroundImage = "url('img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
+		// change sell button to show t=what will be replaced
+		document.getElementById('okBuyRightButton').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/w${player1.weapon1Card}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyLeftButton').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/w${player1.weapon2Card}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyTwoHanded').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/w${player1.weapon1Card}.jpg" alt="" style="width: 80px"><img src="img/market/w${player1.weapon2Card}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyArmor').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/a${player1.armorCard}.jpg" alt="" style="width: 80px">`;
 
-		
+		document.getElementById('okBuyHealth').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/healthBonus0${player1.healthCard}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyDamage').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/damageBonus${player1.damageCard}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyAttack').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/attackBonus${player1.attackCard}.jpg" alt="" style="width: 80px">`;
+		document.getElementById('okBuyDefense').innerHTML = 
+		`<div>buy and replace <div/><br> <img src="img/market/defenseBonus${player1.defenseCard}.jpg" alt="" style="width: 80px">`;
 
 
 // Damage popup images
@@ -3423,16 +3499,15 @@ function enemy1Dead(){
 function fightNext(){
 	fadeMusic(MoonLight);
 	weekCardUp();
-
 	if (encounter1.paused){	
 			playMusic(encounter1);
 	}
 
-
-
 	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";
+	document.getElementById('battleFooter').style.display = "none";
+	document.getElementById('closeWeek').style.display = "block";
 };
 
 function enemy1Attack(){
