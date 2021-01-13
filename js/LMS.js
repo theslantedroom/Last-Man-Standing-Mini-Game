@@ -341,14 +341,14 @@ const fadeMusic = (song) =>{
 
 const playMusic = (song) => {
 	song.currentTime = 0;
-	song.volume = .1;
+	song.volume = .05;
 	song.play();
 
 };
 
 const playSound = (sound) => {
 	sound.currentTime = 0;
-	sound.volume = .0;
+	sound.volume = .1;
 	sound.play();
 };
 
