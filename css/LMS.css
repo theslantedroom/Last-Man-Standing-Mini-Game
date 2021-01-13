@@ -376,8 +376,9 @@ justify-content: center;
 	cursor: pointer;
 	border: 1px solid black;
 	border-radius: 8px;
-	/* min-height: 84px;
-	min-width: 84px; */
+	min-height: 84px;
+	max-width: 90px;
+	min-width: 84px;
 }
 #storeImages img:hover{
 	background-color: rgba(164, 188, 254, 0.49);
