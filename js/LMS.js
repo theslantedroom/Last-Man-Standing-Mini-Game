@@ -125,7 +125,7 @@ const nextMarketText = () => {
 		questArray[0].text = 'barkeep - "she looks like an independant woman"'
 		break;
 	case 6:
-		questArray[0].text = 'trader - "a real Gladiator, thats what it says here"'
+		questArray[0].text = 'trader - "a real gladiator, that is what it says here"'
 		break;
 	case 7:
 		questArray[0].text = 'merchant - "darn devil made of stone"'
@@ -143,7 +143,7 @@ const nextMarketText = () => {
 		questArray[0].text = 'baker - "yeah they pay them well I hear"'
 		break;
 	case 12:
-		questArray[0].text = 'craftswoman - "I wish i looked like her, shes so strong"'
+		questArray[0].text = 'craftswoman - "I wish I looked like her, she is so strong"'
 		break;
 	case 13:
 		questArray[0].text = 'shepard - "I hope he dies in there, I saw them bullying my sheep"'
@@ -209,10 +209,10 @@ const nextMarketText = () => {
 		questArray[0].text = 'zookeeper - "how intriguing, what beautiful paws"'
 		break;
 	case 34:
-		questArray[0].text = 'guard - "the Dominator is real SOB i hear"'
+		questArray[0].text = 'guard - "the Dominator is real SOB I hear"'
 		break;
 	case 35:
-		questArray[0].text = 'the Dominator gets back up.. "Im not finished"'
+		questArray[0].text = 'a second Dominator gets enters.. "you killed my brother"'
 		break;
 	
 	}
