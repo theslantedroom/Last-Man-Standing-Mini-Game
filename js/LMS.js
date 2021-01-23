@@ -146,10 +146,10 @@ const nextMarketText = () => {
 		questArray[0].text = 'craftswoman - "I wish I looked like her, she is so strong"'
 		break;
 	case 13:
-		questArray[0].text = 'shepard - "I hope he dies in there, I saw them bullying my sheep"'
+		questArray[0].text = 'shepard - "I hope he dies in there, I saw him bullying a woman"'
 		break;
 	case 14:
-		questArray[0].text = 'shoe maker - "she is my favorite, but my wife likes the Dom"'
+		questArray[0].text = 'shoe maker - "she is my favorite, but do not tell my wife"'
 		break;
 	case 15:
 		questArray[0].text = 'halfwit - "duh... hit.. smash hard"'
@@ -164,7 +164,7 @@ const nextMarketText = () => {
 		questArray[0].text = 'priest - "oh all that is Holy! save me"'
 		break;
 	case 19:
-		questArray[0].text = 'Lady - "Oh how I relish his bravery"'
+		questArray[0].text = 'lady - "Oh how I relish his bravery"'
 		break;
 	case 20:
 		questArray[0].text = 'street urchin - "I bet he is ugly under the mask"'
@@ -179,13 +179,13 @@ const nextMarketText = () => {
 		questArray[0].text = 'fletcher - "may they fly true, so I can sell some more"'
 		break;
 	case 24:
-		questArray[0].text = 'Lord - "he disobeyed MY wife! Intolerable"'
+		questArray[0].text = 'lord - "he disobeyed MY wife! Intolerable"'
 		break;
 	case 25:
 		questArray[0].text = 'victim- "justice is served this day, God willing"'
 		break;
 	case 26:
-		questArray[0].text = 'Stable boy - "the horses scars.. ashonishing"'
+		questArray[0].text = 'stable boy - "the horses scars.. ashonishing"'
 		break;
 	case 27:
 		questArray[0].text = 'captain - "yeah, thats wats he got comin when he drinkin on duty eh"'
@@ -200,10 +200,10 @@ const nextMarketText = () => {
 		questArray[0].text = 'fisherman - "she said if I stop, she would get the cudgel again"'
 		break;
 	case 31:
-		questArray[0].text = 'Hag - "looks like she just got out of a pot of stew"'
+		questArray[0].text = 'hag - "looks like she just got out of a pot of stew"'
 		break;
 	case 32:
-		questArray[0].text = 'Maid - "are they even real? oh imagine"'
+		questArray[0].text = 'maid - "are they even real? oh imagine"'
 		break;
 	case 33:
 		questArray[0].text = 'zookeeper - "how intriguing, what beautiful paws"'
