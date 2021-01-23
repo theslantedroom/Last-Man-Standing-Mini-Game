@@ -1,5 +1,5 @@
 
-
+// Player object
 const player1 = {
 	name: 'player1',
 	currentCharCard: (Math.floor(Math.random() * 32) + 1)  ,
@@ -31,7 +31,7 @@ const player1 = {
 	damage: 0,
 	attack: 0,
 	defense: 0,  //calculated total
-	armor: 4,
+	armor: 6,
 	weapon1: 4,
 	weapon2: -1,
 	weapon1Bonus: -1,
@@ -39,11 +39,13 @@ const player1 = {
 	kills: 0,
 	deaths: 0,
 };
+
 // Global Stats
 var killCount = 0;
 var deathCount = 0;
 var highScore = 0;
 var gamesPlayed = 0;
+
 // Combat DICE
 var battleNumber = 1;
 var goldRewardDice = 6;
@@ -52,6 +54,8 @@ var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
 var healCostGold = 2;
+
+// Campaign variables
 var currentEnemyCard = 0;
 let currentWeek = 0;
 
@@ -59,7 +63,8 @@ let currentWeek = 0;
 // CONTRUCT ENEMIES
 const enemyArray = [];
 class Enemy1 {
-  constructor(card, health, currentHealth, defense, weapon1, weapon2, weapon1Bonus, weapon2Bonus, attack, damage, name) {  // Constructor
+  constructor(card, health, currentHealth, defense, weapon1, weapon2, weapon1Bonus, weapon2Bonus, attack, damage, name) 
+  {  // Constructor
    	this.card = card;
     this.health = health;
     this.currentHealth = currentHealth;
@@ -74,6 +79,18 @@ class Enemy1 {
   }
 }
 
+// close title screen
+const closeTitleScreen = () => {
+	characterCreation.style.display = 'block';
+	titleScreen.style.display = "none";
+	titleScreen.classList.add("offScreenTop");
+	playMusic(ancientDream);
+	let closeTitleScreen = document.getElementById('closeTitleScreen');
+	closeTitleScreen.style.display = 'none';
+	document.getElementById("nameConfirmButton").style.display = 'block';
+	document.getElementById("player1NameInput").defaultValue = "Unknown Hero";
+};
+
 // Construct Quest
 const questArray = [];
 class Quest1 {
@@ -81,7 +98,11 @@ class Quest1 {
 		this.week = week;
 		this.text = text;
 	}
-  }
+}
+const week1 = new Quest1(0,'start map');
+// puts the new quest into the quest array
+questArray.push(week1);
+
 // update market text 
 const nextMarketText = () => {
 	switch (questArray[0].week) {
@@ -202,18 +223,15 @@ const nextMarketText = () => {
 
 
 
-const week1 = new Quest1(0,'start map');
-questArray.push(week1);
 
+// Handles the Week card pop up
 const closeWeek = document.getElementById("closeWeek");
-
 closeWeek.addEventListener("click", function(){
 	document.getElementById('week').classList.add("weekOffScreen");
 	battleScreen.style.display = 'block';
-	document.getElementById('closeWeek').style.display = 'none';
-	document.getElementById('battleFooter').style.display = 'block';
+	closeWeek.style.display = 'none';
+	battleFooter.style.display = 'block';
 });
-
 
 const weekCardUp = (week) => {
 	battleScreen.style.display = 'none';
@@ -333,6 +351,9 @@ enemyArray.push(dominatorA);
 const dominatorB = new Enemy1(35,40,40,17,12,-1,-1,-1,4,5,'dominatorB');
 enemyArray.push(dominatorB);
 
+
+// Screens
+var titleScreen = document.getElementById("titleScreen");
 //UI Interface
 var confirmBuyWindow = document.getElementById("confirmBuyWindow");
 var confirmDiscardWindow = document.getElementById("confirmDiscardWindow");
@@ -356,8 +377,8 @@ var cancelBuyButton = document.getElementById("cancelBuyButton");
 var cancelDiscardButton = document.getElementById("cancelDiscardButton");
 var wantToBuy = document.getElementById("wantToBuy");
 var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
-const buyPreview = document.getElementById("buyPreview");
-const discardPreview = document.getElementById("discardPreview");
+var buyPreview = document.getElementById("buyPreview");
+var discardPreview = document.getElementById("discardPreview");
 
 var characterCreation = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
@@ -389,7 +410,6 @@ var enemy1CharCard = document.getElementById("enemy1Idle");
 var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
 
 // TABLE Stats 
-document.getElementById("player1NameInput").defaultValue = "Unknown Hero";
 var nameConfirm = document.getElementById("nameConfirm");
 var player1Name = document.getElementById("player1Name");
 var player1GoldTable = document.getElementById("player1GoldTable");
@@ -408,8 +428,7 @@ var tablePlayer1Weapon2Bonus = document.getElementById("player1.weapon2Bonus");
 
 
 
-// SLIDES
-
+// SLIDES for combat screen
 var slideStart = document.getElementById("slideStart");
 var slidePlayer1Hit= document.getElementById("slidePlayer1Hit");
 var slidePlayer1Critical= document.getElementById("slidePlayer1Critical");
@@ -424,7 +443,6 @@ var slideKillLog = document.getElementById("slideKillLog");
 var logSlideRollResult = document.getElementById("rollResult");
 var logSlideResultLine2 = document.getElementById("resultLine2");
 var logSlideResultLine3 = document.getElementById("resultLine3");
-
 var logSlideRollResultE = document.getElementById("rollResultE");
 var logSlideResultLine2E = document.getElementById("resultLine2E");
 var logSlideResultLine3E = document.getElementById("resultLine3E");
@@ -432,7 +450,6 @@ var logSlideResultLine3E = document.getElementById("resultLine3E");
 var damageRollResultK = document.getElementById("damageRollResultK");
 var damageResultLine2K = document.getElementById("damageResultLine2K");
 var damageResultLine3K = document.getElementById("damageResultLine3K");
-
 
 var nextEnemyKillCount= document.getElementById("nextEnemyKillCount");
 var popUpEnemy1Dead = document.getElementById("popUpEnemy1Dead");
@@ -448,81 +465,63 @@ let battleScreen = document.getElementById("battleScreen");
 let battleFooter = document.getElementById("battleFooter");
 let welcomeMarket = document.getElementById("welcomeMarket");
 
-const fadeMusic = (song) =>{
-	var fadeTimer = setInterval(function() {
-		if (song.volume <= .1){
-			song.pause();
-			song.currentTime = 0;
-			song.volume = 1;
-			clearInterval(fadeTimer);
-		};
-		if (song.volume >= .1) {
-		song.volume -= 0.1;	
-		};
-        }, 50);
+// cycle character cards
+function player1previousCharacter(){	
+	player1.currentCharCard -= 1;
+	playSound(changeCharacterSound);
+	if (player1.currentCharCard == 0) {
+		player1.currentCharCard = 32;
+	}
+	console.log('player1.currentCharCard '+player1.currentCharCard);
+	player1CharCard.style.backgroundImage = "url('img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
+function player1NextCharacter(){	
+	player1.currentCharCard += 1;
+	playSound(changeCharacterSound);
+	if (player1.currentCharCard == 33) {
+		player1.currentCharCard = 1;
+	}
+	console.log('player1.currentCharCard '+player1.currentCharCard);
+	player1CharCard.style.backgroundImage = "url('img/charCard" + player1.currentCharCard + ".jpg')";
+};
+
+// Music Handler
+const fadeMusic = (song) =>{
+	var fadeTimer = setInterval(function() {
+			if (song.volume <= .1){
+				song.pause();
+				song.currentTime = 0;
+				song.volume = 1;
+				clearInterval(fadeTimer);
+			};
+			if (song.volume >= .1) {
+			song.volume -= 0.1;	
+			};
+        }, 50);
+};
 const playMusic = (song) => {
 	song.currentTime = 0;
 	song.volume = .05;
 	song.play();
-
 };
-
 const playSound = (sound) => {
 	sound.currentTime = 0;
 	sound.volume = .1;
 	sound.play();
 };
-
-
-
-// Screens
-var titleScreen = document.getElementById("titleScreen");
-
-
-function mutePage() {
-    document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
-}
-
-// MUSIC TOGGLE
+// MUSIC TOGGLE currently hidden
 let musicToggle = document.getElementById("musicToggle");
+// musicToggle.style.display = 'block';
 musicToggle.addEventListener("click", function() {
 	Array.prototype.slice.call(document.querySelectorAll('audio')).forEach(function(audio) {
 		audio.muted = true;
 	});
 	musicToggle.style.display = 'none';
-  });
-
-// document.getElementById("inventory").addEventListener("click", function() {
-// 	alert("Inventory");
-// });
-
-// var musicToggle = document.getElementById("musicToggle");
-// musicToggle.onclick = function() {
-//   state = !state;
-//   if (state) {
-//     button.innerHTML = "ON";
-//   } else {
-//     button.innerHTML = "OFF";
-//   }
-// }
-
-
-
-const closeTitleScreen = () => {
-	characterCreation.style.display = 'block';
-	titleScreen.style.display = "none";
-	titleScreen.classList.add("offScreenTop");
-	playMusic(ancientDream);
-	let closeTitleScreen = document.getElementById('closeTitleScreen');
-	closeTitleScreen.style.display = 'none';
-	document.getElementById("nameConfirmButton").style.display = 'block';
-
+});
+function mutePage() {
+    document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 };
-
-
-
 
 // HEALING MARKET BUTTON
 buyHealing.addEventListener("click", function(){
@@ -541,7 +540,12 @@ buyHealing.addEventListener("click", function(){
 			playSound(cannotAffordSound);
 		};
 });
+const resetHealButton = () => {
+	buyHealing.innerHTML = 'Rest and Heal for <span id="healCost">...</span> gold?';
+	document.getElementById("healCost").innerHTML = healCostGold;
+};
 
+// ready > leave market for first time > popup week card [0]
 goTo1a.addEventListener("click", function(){
 	player1.name = player1NameInput.value;
 	fadeMusic(ancientDream);
@@ -551,18 +555,12 @@ goTo1a.addEventListener("click", function(){
 	buyHealing.style.display = 'none';
 	goTo1a.style.display = 'none';
 	battleFooter.style.display = "block";
-	document.getElementById('closeWeek').style.display = 'block';
-	document.getElementById('battleFooter').style.display = 'none';
-
+	closeWeek.style.display = 'block';
+	battleFooter.style.display = 'none';
 	refresh();
 });
 
-const resetHealButton = () => {
-	buyHealing.innerHTML = 'Rest and Heal for <span id="healCost">...</span> gold?';
-	document.getElementById("healCost").innerHTML = healCostGold;
-};
-
-// confirm button
+// confirm NAME button
 function nameToPlayer1Card(){
 	var player1Namep = document.createElement("div"); //place name on card
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
@@ -589,14 +587,13 @@ function clearDiscardPopUp(){
 };
 clearDiscardPopUp();
 
-// MOVING THE CHAR CARD DIV
 
 //create a  ABC div--------------add to it-------a textnode------(inputtext)
 // document.createElement("div").appendChild(document.createTextNode(player1NameInput.value));
-
 // //place in this location-----------------before------------the a  ABC div----------------------before first child
 // document.getElementById("player1CharCard").insertBefore(document.createElement("div"), player1CharCard.firstChild);
 
+// MOVING THE CHAR CARD DIV
 function player1GotoCharacterSelect(){
 	chooseCharacter.insertBefore(player1CharCard, chooseCharacter.childNodes[1]);
 };
@@ -609,14 +606,15 @@ function player1GotoBattle(){
 function player1GotoMarket(){
 	player1AtMarket.appendChild(player1CharCard);
 	document.getElementById("buyHealing").style.display = 'block';
-	
 };
 
+// update gold text
 function updateGold(){
 	player1Gold.innerHTML = player1.gold;
 	player1Gold2.innerHTML = player1.gold;
 };
 
+// adds health bonus items to player stats
 function addHealthBonus(){
 	player1.maxHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
 	player1MaxHp.innerHTML = '/'+ player1.maxHealth;
@@ -627,58 +625,31 @@ function addHealthBonus(){
 	};
 };
 
-function player1previousCharacter(){	
-		player1.currentCharCard -= 1;
-		playSound(changeCharacterSound);
-		if (player1.currentCharCard == 0) {
-			player1.currentCharCard = 32;
-		}
-		console.log('player1.currentCharCard '+player1.currentCharCard);
-		player1CharCard.style.backgroundImage = "url('img/charCard" + player1.currentCharCard + ".jpg')";
-};
 
-
-function player1NextCharacter(){	
-		player1.currentCharCard += 1;
-		playSound(changeCharacterSound);
-		if (player1.currentCharCard == 33) {
-			player1.currentCharCard = 1;
-		}
-		console.log('player1.currentCharCard '+player1.currentCharCard);
-		player1CharCard.style.backgroundImage = "url('img/charCard" + player1.currentCharCard + ".jpg')";
-};
-
-function closeMarket(){
-	player1GotoCharacterSelect();
-	market.style.display = "none";
-};
-
-
-const changeMarketButton = () =>{
-	const advanceWeek = document.getElementById("advanceWeek");
-	goTo1a.style.display = "none";
-	advanceWeek.style.display = "initial";
-}; 
 
 advanceWeek.addEventListener("click", function(){
 	start();
 	weekCardUp();
 	document.getElementById('market').style.display = 'none';
-	document.getElementById('closeWeek').style.display = 'block';
-	document.getElementById('battleFooter').style.display = 'none';
+	closeWeek.style.display = 'block';
+	battleFooter.style.display = 'none';
 	slideNextEnemy.style.display = 'none';
 	player1GotoBattle();
 	fadeMusic(MoonLight);
 	playMusic(encounter1);
 	advanceWeek.style.display = 'none';
 	battleFooter.style.display = 'none';
-	buyHealing.style.display = 'none';
-	
+	buyHealing.style.display = 'none';	
 });
 
+// closes the market
+function closeMarket(){
+	player1GotoCharacterSelect();
+	market.style.display = "none";
+};
 
+// Open the market
 function openMarket(){
-
 	if (ancientDream.paused){
 		fadeMusic(encounter1);
 		playMusic(MoonLight);	
@@ -694,9 +665,12 @@ function openMarket(){
 	openInventory();
 	battleScreen.style.display = 'none';
 	battleFooter.style.display = 'none';
-
 };
-
+const changeMarketButton = () =>{
+	const advanceWeek = document.getElementById("advanceWeek");
+	goTo1a.style.display = "none";
+	advanceWeek.style.display = "initial";
+}; 
 const openInventory = () => {
 	player1CharCard.style.display = 'block';
 	document.getElementById("storeItemsOnehandWeapons").style.display = "none";
@@ -764,8 +738,6 @@ function clearStore(){
 	document.getElementById("confirmDiscardWindow").style.display = "none";
 	document.getElementById("inventory").style.display = "none";
 	player1CharCard.style.display = "none";
-
-	// cancelBuyClose();
 };
 
 function confirmBuyOpen(){
@@ -927,8 +899,6 @@ function okBuyClear(){
 	okBuyAttack.style.display = "none";
 	okBuyDefense.style.display = "none";
 	okBuyArmor.style.display = "none";
-
-
 };
 
 function cannotAfford(){
@@ -1304,7 +1274,8 @@ const updateBuyPreviewHealth = () => buyPreview.style.backgroundImage = "url('im
 const updateBuyPreviewDamage = () => buyPreview.style.backgroundImage = "url('img/market/damageBonus" + shoppingDamage.damageCard + ".jpg')";
 const updateBuyPreviewAttack = () => buyPreview.style.backgroundImage = "url('img/market/attackBonus" + shoppingAttack.attackCard + ".jpg')";
 const updateBuyPreviewDefense = () => buyPreview.style.backgroundImage = "url('img/market/defenseBonus" + shoppingDefense.defenseCard + ".jpg')";
-// EVENT LISTENERS
+
+
 //Click on STORE ITEMS
 buyW1.addEventListener("click", function() {
 		confirmBuyOpen();
@@ -3599,7 +3570,7 @@ function enemy1Dead(){
 		popUpEnemy1Dead.style.display = "block";
 		alert("YOU WIN, this is as far as i am in develpoment so far. Thanks for playin.  You may continue to play until you die");
 		currentEnemyCard = 0;
-	};
+	};confirmDiscardClose
 
 	currentWeek += 1;
 	killCount = killCount + 1;
@@ -3624,8 +3595,8 @@ function fightNext(){
 	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";
-	document.getElementById('battleFooter').style.display = "none";
-	document.getElementById('closeWeek').style.display = "block";
+	battleFooter.style.display = "none";
+	closeWeek.style.display = "block";
 };
 
 function enemy1Attack(){
