@@ -56,10 +56,9 @@ body{
 }
 #donate{
 	font-size: 9px;
-	position: fixed;
-	top: -15px;
-	text-align: right;
-	right: -1px;
+	position: relative;
+	bottom: : 2px;
+
 }
 button {
 	font-size: 1em;
@@ -83,9 +82,11 @@ p {
 	/* font-size: 11px; */
 	text-align: center;
 	line-height: 1.2;
+	color: #d3d9b8;
+
 }
 a{
-	color: grey;
+	color: #7FBF3F;
 }
 
 #musicToggle{
@@ -95,18 +96,19 @@ a{
 h1{
 	font-size: 18px;
 	margin-bottom: 2px;
+	color: #c0c997;
 }
 h2{
 	font-size: 10px;
-	color: yellow;
+	color: #d3d9b8;
 }
 h3{
 	/* font-size: 1.5vh; */
-	color: rgb(165, 14, 14);
+	color: #c0c997;
 }
 h4{
 	/* font-size: 1.3vh; */
-	color: grey;
+	color: #d3d9b8;
 	padding: 2px;
 	margin: 1px;
 }
@@ -132,6 +134,7 @@ h5{
 .titleScreen h1{
 	/* font-size: 40px ; */
 	padding: 30px;
+	padding-bottom: 0
 	}
 .titleScreen h2{
 	/* font-size: 30px ; */
