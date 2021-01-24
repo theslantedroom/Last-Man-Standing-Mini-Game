@@ -64,6 +64,9 @@ body{
 	bottom: : 2px;
 
 }
+div{
+
+}
 button {
 	font-size: 1em;
 	font-weight: 600;
@@ -243,6 +246,7 @@ h5{
 }
 
 /*CHARCARDS*/
+
 #player1CharCard{
 	color: gold;
 	background-position: center;
@@ -251,6 +255,7 @@ h5{
 	height: 40vh;
 	position: relative;
 	background-size: contain;
+		
 	/* z-index: 10; */
 }
 #player1CharCard:hover{
@@ -265,6 +270,12 @@ h5{
 	background-position: center;
 	background-size: contain;
 	font-size: 11px;
+
+}
+#player1CharCard div:first-child {
+	position: relative;
+  	font-size: 6px;
+  	line-height: 3;
 }
 .charcardCenter{
 	transition: all 2250ms ease-in-out;
