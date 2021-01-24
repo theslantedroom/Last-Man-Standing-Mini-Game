@@ -54,6 +54,13 @@ body{
 	width: 49%;
 	height: 100%;
 }
+#donate{
+	font-size: 9px;
+	position: fixed;
+	bottom: 11px;
+	text-align: right;
+	right: 10px;
+}
 button {
 	font-size: 1em;
 	font-weight: 600;
