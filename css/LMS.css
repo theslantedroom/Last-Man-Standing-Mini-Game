@@ -36,9 +36,10 @@ body{
 }
 
 #footer{
-	border: 1px solid rgb(114, 179, 76);
+	border: 4px solid #570801;
 	height: 15vh;
 	width: 100%;
+	margin: auto;
 	max-width: 1000px;
 	overflow: hidden;
 	box-sizing: border-box;
