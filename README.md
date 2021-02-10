@@ -9,7 +9,7 @@ This is my first project where I explore JavaScript Html and CSS.  I have just s
 // its not very good code but I learned some things<br>
 // to do;<br>
 // clean this code up<br>
-// Add CSS<br>
+// make it look good<br>
 //rewrite functions<br>
 <br>  I will continue to develop this project possibly making it a stand alone app in 'Electron' or incorporating a back-end in Python or node.js for users to save their progress.
 I plan to add in the campaign next, as present in the board game.
@@ -28,7 +28,7 @@ GOALS of this Project; <br>
  ~~add 34 enemy types using constructor function and class~~  <br>
  ~~add gold and healing systems~~  <br>
  add campaign <br>
- Add music composed by myself (the slanted room) <br>
+ write music and code it in somehow <br>
  CSS and visual layout design <br>
  flesh out the animations and UI <br>
  possible stand alone app in phonegap or Electron <br>
