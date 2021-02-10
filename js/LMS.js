@@ -1,3 +1,10 @@
+// this code is the first code i ever wrote, it was piled on top of itself with no plan or even knowledge of what was possible
+// its not very good code but I learned some things
+// to do;
+// clean this code up
+// Add CSS
+//rewrite functions
+
 
 // Player object
 const player1 = {
