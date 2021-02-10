@@ -5,7 +5,7 @@ A web version of my board game - Last Man Standing -Ported from a board game con
 ![Last man standing Image](https://raw.githubusercontent.com/theslantedroom/Last-Man-Standing-Mini-Game/main/img/githubLMS.jpg)
 
 This is my first project where I explore JavaScript Html and CSS.  I have just started studying code and am using this to gain practical experience.   <br>
-// this code is the first code i ever wrote, it was piled on top of itself with no plan or even knowledge of what was possible<br>
+// this code is the first code I ever wrote, it was piled on top of itself with no plan or even knowledge of what was possible<br>
 // its not very good code but I learned some things<br>
 // to do;<br>
 // clean this code up<br>
