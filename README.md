@@ -5,7 +5,12 @@ A web version of my board game - Last Man Standing -Ported from a board game con
 ![Last man standing Image](https://raw.githubusercontent.com/theslantedroom/Last-Man-Standing-Mini-Game/main/img/githubLMS.jpg)
 
 This is my first project where I explore JavaScript Html and CSS.  I have just started studying code and am using this to gain practical experience.   
-The challenges this project presented for myself while learning to code have been rewarding to overcome and fill me with pride!
+// this code is the first code i ever wrote, it was piled on top of itself with no plan or even knowledge of what was possible
+// its not very good code but I learned some things
+// to do;
+// clean this code up
+// Add CSS
+//rewrite functions
 <br>  I will continue to develop this project possibly making it a stand alone app in 'Electron' or incorporating a back-end in Python or node.js for users to save their progress.
 I plan to add in the campaign next, as present in the board game.
 
