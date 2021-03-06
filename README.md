@@ -4,8 +4,13 @@ A web version of my board game - Last Man Standing -Ported from a board game con
 
 ![Last man standing Image](https://raw.githubusercontent.com/theslantedroom/Last-Man-Standing-Mini-Game/main/img/githubLMS.jpg)
 
-This is my first project where I explore JavaScript Html and CSS.  I have just started studying code and am using this to gain practical experience.   
-The challenges this project presented for myself while learning to code have been rewarding to overcome and fill me with pride!
+This is my first project where I explore JavaScript Html and CSS.  I have just started studying code and am using this to gain practical experience.   <br>
+// this code is the first code I ever wrote, it was piled on top of itself with no plan or even knowledge of what was possible<br>
+// its not very good code but I learned some things<br>
+// to do;<br>
+// clean this code up<br>
+// make it look good<br>
+//rewrite functions<br>
 <br>  I will continue to develop this project possibly making it a stand alone app in 'Electron' or incorporating a back-end in Python or node.js for users to save their progress.
 I plan to add in the campaign next, as present in the board game.
 
@@ -23,7 +28,7 @@ GOALS of this Project; <br>
  ~~add 34 enemy types using constructor function and class~~  <br>
  ~~add gold and healing systems~~  <br>
  add campaign <br>
- Add music composed by myself (the slanted room) <br>
+ write music and code it in somehow <br>
  CSS and visual layout design <br>
  flesh out the animations and UI <br>
  possible stand alone app in phonegap or Electron <br>
