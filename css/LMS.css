@@ -35,7 +35,7 @@ body{
 	background-repeat: repeat-y;
 	margin: 0;
 	
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 }
 
 #footer{
