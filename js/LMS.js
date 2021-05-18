@@ -569,7 +569,7 @@ goTo1a.addEventListener("click", function(){
 
 // confirm NAME button
 function nameToPlayer1Card(){
-	var player1Namep = document.createElement("div"); //place name on card
+	var player1Namep = document.createElement("h6"); //place name on card
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
 	player1.name = player1NameInput.value
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
@@ -624,7 +624,7 @@ function updateGold(){
 // adds health bonus items to player stats
 function addHealthBonus(){
 	player1.maxHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
-	player1MaxHp.innerHTML = '/'+ player1.maxHealth;
+	player1MaxHp.innerHTML =  player1.maxHealth;
 	player1CurrentHp.innerHTML = player1.currentHealth;
 	if (player1.currentHealth > player1.maxHealth) {
 		player1.currentHealth = player1.maxHealth;
@@ -3791,7 +3791,7 @@ function enemyAttack(){
 		player1.currentHealth = player1.currentHealth - attackDamageE;
 		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
 		player1CurrentHp.innerHTML = player1.currentHealth;
-		logSlideResultLine2E.innerHTML = '<span style="color: rgb(121, 0, 0)">OH NO!! CRITICAL HIT</span>';
+		logSlideResultLine2E.innerHTML = '<span style="color: #f58634">OH NO!! CRITICAL HIT</span>';
 		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE)+ " + " + enemyArray[currentEnemyCard].damage +", down to " + player1.currentHealth;
 		slideLogSlideE.style.backgroundColor = "rgba(182, 0, 0, 0.59)";
 		console.log("Enemy deals critical hit");

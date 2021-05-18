@@ -39,7 +39,6 @@ body{
 }
 
 #footer{
-	border: 4px solid #570801;
 	height: 15vh;
 	width: 100%;
 	margin: auto;
@@ -47,16 +46,18 @@ body{
 	overflow: hidden;
 	box-sizing: border-box;
 	position: relative;
-	background-color: #071508;
+	background-color: #206a5d;
 	display: flex;
 	justify-content: center;
 	min-height: 80px;
+	padding: 2px;
 }
 #footer button {
 	font-size: 20px;
-	border: 5px solid #000;
+	border: 5px solid #064420;
 	width: 49%;
 	height: 100%;
+	margin: 2px;
 }
 #donate{
 	font-size: 9px;
@@ -64,9 +65,7 @@ body{
 	bottom: : 2px;
 
 }
-div{
 
-}
 button {
 	font-size: 1em;
 	font-weight: 600;
@@ -74,6 +73,7 @@ button {
 	justify-content: center;
 	margin: auto;
 	margin-top: 3px;
+	background-color: #e4efe7;
 }
 button:hover{
 	cursor: pointer;
@@ -83,13 +83,12 @@ button:hover{
 	font-size: 20px;
 }
 p {
-	font-size: 15px;
+	/* font-size: 15px; */
 	padding: 0px;
 	margin: 0px;
-	/* font-size: 11px; */
 	text-align: center;
 	line-height: 1.2;
-	color: #d3d9b8;
+	color: #f58634;
 
 }
 a{
@@ -103,15 +102,15 @@ a{
 h1{
 	font-size: 18px;
 	margin-bottom: 2px;
-	color: #c0c997;
+	color: #ffcc29;
 }
 h2{
 	font-size: 10px;
-	color: #d3d9b8;
+	color: #81b214;
 }
 h3{
 	/* font-size: 1.5vh; */
-	color: #c0c997;
+	color: #f58634;
 }
 h4{
 	/* font-size: 1.3vh; */
@@ -123,6 +122,13 @@ h5{
 	/* font-size: 1.5vh; */
 	padding: 2px;
 	margin: 1px;
+}
+h6	{
+	font-size: .5em;
+	color: #ffcc29;
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 
 .titleScreen{
@@ -139,12 +145,8 @@ h5{
 	transition: all 2250ms ease-in-out;
 }
 .titleScreen h1{
-	/* font-size: 40px ; */
 	padding: 30px;
 	padding-bottom: 0
-	}
-.titleScreen h2{
-	/* font-size: 30px ; */
 	}
 
 .titleScreen ul{padding: 0;}
@@ -177,26 +179,16 @@ h5{
 }
 #characterCreation{
 	margin: 0;
-	/* overflow: hidden; */
 	box-sizing: border-box;
 	transition: all 250ms ease-in-out;
 	color: white;
 	background-image: url(../img/BGdark.jpg);
 	background-size: cover;
 	background-repeat: repeat-y;
-	/* min-width: 620px; */
 	text-align: center;
 	position: relative;
 	top: 10px;
-	/* position: absolute;
-	height: 100vh;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px; */
-	/* width: 500px; */
 	height: 100%;
-	border: 1px solid black;
 	z-index: 1;
 	display: none;
 }
@@ -227,9 +219,6 @@ h5{
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-#player1PreviousCharacter:hover{
-
-}
 
 #player1NextCharacter{
 	background-image: url(../img/arrow.png);
@@ -242,8 +231,6 @@ h5{
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-#player1NextCharacter:hover{
-}
 
 /*CHARCARDS*/
 
@@ -255,27 +242,33 @@ h5{
 	height: 40vh;
 	position: relative;
 	background-size: contain;
-		
-	/* z-index: 10; */
 }
-#player1CharCard:hover{
-/* z-index: 5; */
+
+
+.hpbar{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #071508;
+}
+
+
+.invCard{
+	border: 1px solid black;
 }
 
 #player1CharCard div{
 	position: absolute;
 	text-align: center;
-	border: 1px solid black;
 	background-size: 100%;
 	background-position: center;
 	background-size: contain;
-	font-size: 11px;
+	font-size: .85em;
 
 }
 #player1CharCard div:first-child {
 	position: relative;
-  	font-size: 6px;
-  	line-height: 3;
+  	line-height: 1;
 }
 .charcardCenter{
 	transition: all 2250ms ease-in-out;
@@ -287,20 +280,21 @@ h5{
 	transition: all 2250ms ease-in-out;
 }
 #player1HealthCounter{
-	line-height: 5.1;
-	font-size: 1.3vh;
 	font-weight: bold;
 	color: black;
 	background-color: white;
 	border-radius: 100%;
-	width: 7vh;
-	height: 7vh;
-	top: 4.5%;
-	left: 37%;
+	width: 5vh;
+	height: 5vh;
+	top: 8.5%;
+	left: 40%;
 	transform: rotate(-10deg);
+	text-align: center;
 }
 #player1DefenseCounter{
-	line-height: 3.5;
+	display: flex;
+ 	justify-content: center;
+	align-items: center;
 	font-size: 3.4vh;
 	font-weight: bold;
 	color: black;
@@ -311,6 +305,7 @@ h5{
 	top: 76.5%;
 	left: 39%;
 	transform: rotate(-15deg);
+	text-align: center;
 }
 #player1HealthCard{
 	width: 7vh;
@@ -385,7 +380,7 @@ h5{
 	height: 100%;
 }
 #marketItems div {
-	color: black;
+	/* color: black; */
 }
 #marketItems {
 
@@ -609,13 +604,16 @@ display: none;
 display: none;
 }
 #rollResult{
-font-size: 2.5vh;
 font-weight: lighter;
 }
 #rollResultE{
-font-size: 2.5vh;
 font-weight: lighter;
 height: 100%;
+color: #206a5d;
+}
+#resultLine3E{
+
+color: #206a5d;
 }
 #slideEnemy1Turn {
 border: 1px solid black;
@@ -628,7 +626,6 @@ background-color: rgba(255, 153, 153, .45);
 height: 100%;
 }
 .lighter{
-font-size: 2.5vh;
 font-weight: lighter;
 }
 #hitPopupCard{
@@ -685,6 +682,7 @@ justify-content: center;
 	width: 20vh;
 	height: 20vh;
 	top: -37vh;
+	box-sizing: border-box;
 }
 #logWeapon2PopUp{
 	margin: auto;
@@ -696,11 +694,13 @@ justify-content: center;
 	width: 20vh;
 	height: 20vh;
 	top: -37vh;
+	box-sizing: border-box;
 }
 #enemyHealthCounter{
+	display: flex;
+ 	justify-content: center;
+	align-items: center;
 	line-height: 2;
-	/* font-size: 2vh; */
-	font-weight: bold;
 	color: black;
 	text-align: center;
 	position: absolute;
@@ -745,7 +745,6 @@ justify-content: center;
 	background-image: url(../img/dead2.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	border: 3px solid black;
 	border-radius: 10%;
 	width: 27vh;
 	height: 27vh;

@@ -45,7 +45,7 @@
 					<h4>About v1.07</h4>
 					<h4>by The Slanted Room <br></h4>
 					<br>-<a href="https://www.patreon.com/user?u=49300800">support the developer</a>-
-					<br><br>-<a href="https://www.paypal.com/donate?hosted_button_id=S6EZYB8QHMGH4">donate</a>-
+					<!-- <br><br>-<a href="https://www.paypal.com/donate?hosted_button_id=S6EZYB8QHMGH4">donate</a>- -->
 					<br><br>
 
 					<h4>Other Games</h4>
@@ -68,16 +68,18 @@
 					<div id="chooseCharacterWindow">
 						<h5>&#8678; Choose a Character &#8680;</h5>
 						<div id="player1CharCard">
-							<div id="player1HealthCounter"><span id="player1CurrentHp"></span><span id="player1MaxHp"></span></div>
-							<div id="player1DefenseCounter"></div>
-							<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
-							<div id="player1Weapon2Card" onclick="discardWeaponL()"></div>
-							<div id="player1ArmorCard" onclick="discardArmor()"></div>
-							<div id="player1HealthCard" onclick="discardHealth()"></div>
-							<div id="player1DamageCard" onclick="discardDamage()"></div>
-							<div id="player1AttackCard" onclick="discardAttack()"></div>
-							<div id="player1DefenseCard" onclick="discardDefense()"></div>
-							<div id="popUpOuch"></div>
+							<div class="invCard" id="player1HealthCounter">
+								<div class="hpbar"><span class="" id="player1CurrentHp"></span><br><span class="">/</span><br><span class="" id="player1MaxHp"></span></div>
+							</div>
+							<div class="invCard" id="player1DefenseCounter"></div>
+							<div class="invCard" id="player1Weapon1Card" onclick="discardWeaponR()"></div>
+							<div class="invCard" id="player1Weapon2Card" onclick="discardWeaponL()"></div>
+							<div class="invCard" id="player1ArmorCard" onclick="discardArmor()"></div>
+							<div class="invCard" id="player1HealthCard" onclick="discardHealth()"></div>
+							<div class="invCard" id="player1DamageCard" onclick="discardDamage()"></div>
+							<div class="invCard" id="player1AttackCard" onclick="discardAttack()"></div>
+							<div class="invCard" id="player1DefenseCard" onclick="discardDefense()"></div>
+							<div class="invCard" id="popUpOuch"></div>
 					</div>
 
 						<div id="chooseCharacter">
@@ -345,7 +347,7 @@
 				<div id="slideEnemy1Turn">
 					<div class="lighter"><p>-</p></div>
 					<div><p>-</p></div>
-					<div><p style="color: #570801">The enemy attacks</p></div>
+					<div><p style="color: #000000">The enemy attacks</p></div>
 					<div><button style="color: #570801" class="battleButtonBottom" onclick="enemyAttack()">Brace your self</button></div>
 				</div>
 
