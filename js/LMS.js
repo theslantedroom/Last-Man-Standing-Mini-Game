@@ -722,14 +722,14 @@ function weaponStoreShieldButton(){
 function armorStoreButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "it is important to protect yourself";
+	document.getElementById("discardText").innerHTML = "it is important to protect yourself in style";
 	document.getElementById("storeItemsArmor").style.display = "flex";
 	playSound(marketCategory);
 };
 function trainingStoreButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "these skills could save your life";
+	document.getElementById("discardText").innerHTML = "these skills could save your life... or end another's";
 	document.getElementById("storeItemsTraining").style.display = "flex";	
 	playSound(marketCategory);
 };
