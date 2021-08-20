@@ -694,28 +694,28 @@ const openInventory = () => {
 function weaponStoreOneHandButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "are you gonna dual wield? or use a shield?";
+	document.getElementById("discardText").innerHTML = "What wilt thou bringeth in battle?";
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreTwoHandButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "mighty damage from these weapons";
+	document.getElementById("discardText").innerHTML = "inflicteth mighty death from such sinister weapons";
 	document.getElementById("storeItemsTwoHanded").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreRangedButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "deadly is the bow - they hit frequently";
+	document.getElementById("discardText").innerHTML = "deadly is the bow - arrows with great velocity";
 	document.getElementById("storeItemsRanged").style.display = "flex";
 	playSound(marketCategory);
 };
 function weaponStoreShieldButton(){
 	clearStore();
 	document.getElementById("inventory").style.display = "block";
-	document.getElementById("discardText").innerHTML = "a trusty shield - makes you harder to hit";
+	document.getElementById("discardText").innerHTML = "a trusty shield - a stone fortress in your time of great peril";
 	document.getElementById("storeItemsShields").style.display = "flex";
 	playSound(marketCategory);
 };

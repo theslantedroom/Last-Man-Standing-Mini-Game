@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game/issues"
   },
-  "homepage": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game#readme"
+  "homepage": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
 }
