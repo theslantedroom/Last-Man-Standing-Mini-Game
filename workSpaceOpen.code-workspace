@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+  ],
+  "settings": {
+  "restoreTerminals.terminals": [
+    {
+      "profile": "Git Bash",
+      "splitTerminals": [
+            {
+              "name": " Git Bash",
+              "commands": []
+            },
+            {
+              "name": "server",
+              "commands": [
+                "yarn start"
+              ],
+ 		         "shouldRunCommands": false
+            },
+            {
+              "name": "typescript",
+              "commands": [
+              "yarn open_android"
+              ],
+ 		          "shouldRunCommands": false 
+            }
+          ]
+    }
+  ],
+  "cSpell.words": [
+  ]
+  }
+}

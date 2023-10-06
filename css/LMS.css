@@ -9,6 +9,7 @@ body{
 	/* font-size: 20px; */
 	position: static;
 	background-repeat: repeat-y;
+  background-color: #7FBF3F;
 	width: 100%;
 	margin: auto;
 }
