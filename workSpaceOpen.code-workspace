@@ -16,14 +16,14 @@
             {
               "name": "server",
               "commands": [
-                "yarn start"
+                "live-server"
               ],
  		         "shouldRunCommands": false
             },
             {
               "name": "typescript",
               "commands": [
-              "yarn open_android"
+              " "
               ],
  		          "shouldRunCommands": false 
             }

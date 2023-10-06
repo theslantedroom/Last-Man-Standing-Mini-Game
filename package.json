@@ -4,7 +4,7 @@
   "description": "Last Man Standing App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn live-server"
   },
   "repository": {
     "type": "git",
