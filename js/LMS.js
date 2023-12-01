@@ -5,6 +5,89 @@
 // Add CSS
 //rewrite functions
 
+var imageUrls = [
+  "img/dead.jpg",
+  "img/market/w1.jpg",
+  "img/market/w2.jpg",
+  "img/market/w3.jpg",
+  "img/market/w4.jpg",
+  "img/market/w5.jpg",
+  "img/market/w6.jpg",
+  "img/market/w7.jpg",
+  "img/market/w8.jpg",
+  "img/market/w9.jpg",
+  "img/market/w10.jpg",
+  "img/market/w21.jpg",
+  "img/market/w22.jpg",
+  "img/market/w23.jpg",
+  "img/market/w24.jpg",
+  "img/market/w25.jpg",
+  "img/market/w26.jpg",
+  "img/market/w27.jpg",
+  "img/market/w28.jpg",
+  "img/market/w29.jpg",
+  "img/market/w30.jpg",
+  "img/market/w31.jpg",
+  "img/market/w32.jpg",
+  "img/market/w33.jpg",
+  "img/market/w34.jpg",
+  "img/market/w35.jpg",
+  "img/market/w36.jpg",
+  "img/market/w37.jpg",
+  "img/market/w38.jpg",
+  "img/market/w39.jpg",
+  "img/market/w40.jpg",
+  "img/market/w11.jpg",
+  "img/market/w12.jpg",
+  "img/market/w13.jpg",
+  "img/market/w14.jpg",
+  "img/market/w15.jpg",
+  "img/market/w16.jpg",
+  "img/market/w17.jpg",
+  "img/market/w18.jpg",
+  "img/market/w19.jpg",
+  "img/market/w20.jpg",
+  "img/market/a1.jpg",
+  "img/market/a2.jpg",
+  "img/market/a3.jpg",
+  "img/market/a4.jpg",
+  "img/market/a5.jpg",
+  "img/market/a6.jpg",
+  "img/market/a7.jpg",
+  "img/market/a8.jpg",
+  "img/market/a9.jpg",
+  "img/market/a10.jpg",
+  "img/market/a11.jpg",
+  "img/market/a12.jpg",
+  "img/market/a13.jpg",
+  "img/market/a14.jpg",
+  "img/market/healthBonus01.jpg",
+  "img/market/damageBonus1.jpg",
+  "img/market/healthBonus02.jpg",
+  "img/market/damageBonus2.jpg",
+  "img/market/healthBonus03.jpg",
+  "img/market/damageBonus3.jpg",
+  "img/market/attackBonus1.jpg",
+  "img/market/defenseBonus1.jpg",
+  "img/market/attackBonus2.jpg",
+  "img/market/defenseBonus2.jpg",
+  "img/market/attackBonus3.jpg",
+  "img/market/defenseBonus3.jpg",
+];
+
+// Function to preload images
+function preloadImages() {
+  for (var i = 0; i < imageUrls.length; i++) {
+    var img = new Image();
+    img.src = imageUrls[i];
+  }
+}
+
+// Call the preloadImages function when the window has finished loading
+window.onload = function () {
+  preloadImages();
+};
+
 // Player object
 const player1 = {
   name: "player1",
