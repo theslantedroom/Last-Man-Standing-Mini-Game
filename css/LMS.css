@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  font-family: "Press Start 2P", Times, serif;
+  font-family: "VT323", Times, serif;
   position: static;
   background-color: rgb(0, 0, 0);
   width: 100%;
@@ -30,54 +29,58 @@ body {
   background-size: cover;
   background-repeat: repeat-y;
   margin: 0;
+  line-height: 1.7;
 }
 
 #footer {
   width: 100%;
-  max-width: 1000px;
-  box-sizing: border-box;
-  position: relative;
-  background: linear-gradient(to bottom, #1c2624, transparent 50%);
+  background: linear-gradient(to bottom, #220000, transparent 50%);
   display: flex;
   justify-content: center;
 }
 
-button {
-  background: #7c7c7c;
-  border-bottom: 6px inset rgba(0, 0, 0, 0.5);
-  border-left: 6px inset rgba(0, 0, 0, 0.5);
-  border-right: 6px inset rgba(255, 255, 255, 0.5);
-  border-top: 6px inset rgba(255, 255, 255, 0.5);
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  margin: 2px;
-  min-width: 120px;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  width: auto;
-}
+/* CSS */
 
 .inputName {
-  font-size: 20px;
+  font-size: 25px;
+  font-family: "VT323", cursive;
+  background-color: #222;
+  color: #fff;
+  border: 4px solid #f3545c;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 250px;
+  text-align: center;
+  outline: none;
+  box-shadow: 4px 4px 0px #000;
 }
 
+.inputName:focus {
+  border-color: #640000;
+  box-shadow: 4px 4px 0px #aa0000;
+}
 .centerSpill {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 p {
-  /* font-size: 15px; */
-  padding: 0px;
+  padding: 0px 0px;
   margin: 0px;
   text-align: center;
-  line-height: 1.2;
-  color: #f58634;
+  color: #b1b1b1;
+  max-width: 800px;
+  margin: auto;
+  font-size: 25px;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
 }
 a {
   color: #7fbf3f;
+}
+
+.py {
+  padding: 10px;
 }
 
 #musicToggle {
@@ -85,30 +88,26 @@ a {
   width: 60px !important;
 }
 h1 {
-  font-size: 18px;
   margin-bottom: 2px;
-  color: #ffcc29;
+  color: #ffffff;
 }
 h2 {
-  font-size: 10px;
-  color: #81b214;
+  color: #a3a3a3;
 }
 h3 {
-  /* font-size: 1.5vh; */
   color: #f58634;
 }
 h4 {
-  font-size: 1.3vh;
   color: #d3d9b8;
-  line-height: 15px;
   padding: 2px;
   margin: 1px;
 }
 .h4Light {
-  /* font-size: 1.3vh; */
   color: #d3d9b8;
   padding: 2px;
   margin: 1px;
+  max-width: 600px;
+  margin: auto;
 }
 h5 {
   /* font-size: 1.5vh; */
@@ -116,7 +115,6 @@ h5 {
   margin: 1px;
 }
 h6 {
-  font-size: 0.5em;
   color: #ffcc29;
   margin: 0;
   padding: 0;
@@ -152,7 +150,6 @@ input {
 .titleScreen li {
   color: cadetblue;
   list-style: none;
-  font-size: 10px;
 }
 
 .offScreenTop {
@@ -172,7 +169,6 @@ input {
   display: none;
 }
 #nameConfirm div {
-  font-size: 10px;
 }
 #characterCreation {
   margin: 0;
@@ -257,7 +253,6 @@ input {
   background-size: 100%;
   background-position: center;
   background-size: contain;
-  font-size: 0.85em;
 }
 #player1CharCard div:first-child {
   position: relative;
@@ -288,7 +283,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3.4vh;
+  font-size: 44px;
   font-weight: bold;
   color: black;
   background-color: white;
@@ -398,7 +393,7 @@ input {
 }
 #confirmBuyWindow {
   flex-direction: column;
-  border: 5px solid black;
+  border: 5px solid rgb(102, 0, 0);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -407,7 +402,9 @@ input {
   z-index: 3;
   width: 100%;
   display: none;
-  max-width: 350px;
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 15px;
 }
 #buyPreview {
   width: 200px;
@@ -419,14 +416,11 @@ input {
 #confirmBuyButtons {
   margin: auto;
   padding: 4px;
+  display: flex;
 }
 #okBuyLeftButton {
-  float: right;
-  margin: 5px 4px;
 }
 #okBuyRightButton {
-  float: left;
-  margin: 5px 4px;
 }
 #confirmDiscardWindow {
   margin: auto;
@@ -505,9 +499,11 @@ input {
   font-size: 20px;
   height: 50px;
   margin-top: 10px;
+  margin: auto;
 }
 
-#rollBar div {
+.keepfighting {
+  margin: auto;
 }
 #slidePlayer1Turn {
   display: none;
@@ -719,11 +715,8 @@ input {
   display: none;
 }
 
-/* Table */
-
 #table {
   background-color: black;
-  /* font-size: 14px; */
   padding: 1px;
   height: 10vh;
   margin-top: 1px;
@@ -792,4 +785,123 @@ th {
 
 #buyHealing {
   display: none;
+}
+#okBuyButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.pixel,
+button {
+  font-size: 25px;
+  color: white;
+  height: auto;
+  margin: 10px;
+  font-family: "VT323";
+
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pixel:active,
+button:active {
+  top: 2px;
+}
+
+.pixel {
+  line-height: 0;
+
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+
+  border-style: solid;
+  border-width: 20px;
+  -moz-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -webkit-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -o-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+}
+
+.pixel p {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: auto;
+  text-align: center;
+  margin: -20px -20px;
+  line-height: 20px;
+  padding: 10px 20px;
+
+  background: #000000;
+  background: linear-gradient(135deg, transparent 10px, #000000 0) top left,
+    linear-gradient(225deg, transparent 10px, #000000 0) top right,
+    linear-gradient(315deg, transparent 10px, #000000 0) bottom right,
+    linear-gradient(45deg, transparent 10px, #000000 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+      circle at 0 0,
+      rgba(204, 0, 0, 0) 14px,
+      #000000 15px
+    ),
+    radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, #000000 15px),
+    radial-gradient(circle at 100% 100%, rgba(204, 0, 0, 0) 14px, #000000 15px),
+    radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, #000000 15px);
+}
+
+button {
+  position: relative;
+  display: block;
+  margin: 10px;
+  font-family: "VT323";
+  text-transform: uppercase;
+  font-size: 20px;
+  color: white;
+}
+
+button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -10px;
+  right: -10px;
+  background: black;
+  z-index: -1;
+}
+
+button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: -6px;
+  right: -6px;
+  background: black;
+  z-index: -1;
+}
+
+button {
+  padding: 10px 10px;
+  position: relative;
+  background: rgb(66, 0, 0);
+  width: auto;
+  z-index: 2;
 }
