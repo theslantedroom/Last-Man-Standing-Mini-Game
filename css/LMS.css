@@ -103,11 +103,12 @@ h4 {
   margin: 1px;
 }
 .h4Light {
-  color: #d3d9b8;
+  color: #494949;
   padding: 2px;
   margin: 1px;
   max-width: 600px;
   margin: auto;
+  font-size: 25px;
 }
 h5 {
   /* font-size: 1.5vh; */
@@ -241,8 +242,9 @@ input {
   top: 50%;
   transform: translateY(-50%);
   color: #071508;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white; /* White border */
 }
-
 .invCard {
   border: 1px solid black;
 }
@@ -590,7 +592,7 @@ input {
   border: 1px solid black;
   width: 24vh;
   height: 24vh;
-  top: -37vh;
+  top: -60vh;
 }
 #critPopUp {
   margin: auto;
@@ -601,7 +603,7 @@ input {
   border: 1px solid black;
   width: 24vh;
   height: 24vh;
-  top: -37vh;
+  top: -60vh;
 }
 #logWeapon1PopUp {
   margin: auto;
@@ -612,7 +614,7 @@ input {
   border: 1px solid black;
   width: 20vh;
   height: 20vh;
-  top: -37vh;
+  top: -60vh;
   box-sizing: border-box;
 }
 #logWeapon2PopUp {
@@ -624,9 +626,10 @@ input {
   border: 1px solid black;
   width: 20vh;
   height: 20vh;
-  top: -37vh;
+  top: -60vh;
   box-sizing: border-box;
 }
+
 #enemyHealthCounter {
   display: flex;
   justify-content: center;
