@@ -1,0 +1,82 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"include": [],
+		"ignoreUnknown": false,
+		"ignore": [
+			"android/",
+			"ios/",
+			"dist/",
+			"/marketingImages",
+			"node_modules",
+			"test-results/",
+			"ignoredFolder/",
+			"playwright-report/",
+			"yarn.lock",
+			"package.json",
+			".vscode/",
+			".yarn/",
+			"out/"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noUnusedTemplateLiteral": "off",
+				"useExponentiationOperator": "off",
+				"noNonNullAssertion": "off",
+				"useTemplate": "warn",
+				"noParameterAssign": "warn",
+				"useSelfClosingElements": "warn"
+			},
+			"suspicious": {
+				"noEmptyInterface": "warn",
+				"noAssignInExpressions": "off",
+				"noShorthandPropertyOverrides": "warn",
+				"noArrayIndexKey": "warn",
+				"noDuplicateSelectorsKeyframeBlock": "off",
+				"noPrototypeBuiltins": "off",
+				"noExplicitAny": "warn"
+			},
+			"complexity": {
+				"noUselessFragments": "warn",
+				"noForEach": "warn",
+				"useLiteralKeys": "warn",
+				"useArrowFunction": "warn",
+				"noBannedTypes": "off",
+				"noUselessTernary": "warn"
+			},
+			"a11y": {
+				"useKeyWithClickEvents": "warn",
+				"useKeyWithMouseEvents": "warn",
+				"useValidAnchor": "warn",
+				"useGenericFontNames": "warn",
+				"useButtonType": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "error",
+				"noEmptyPattern": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"jsxQuoteStyle": "double"
+		}
+	}
+}

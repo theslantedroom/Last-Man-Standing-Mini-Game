@@ -3,34 +3,29 @@
 		{
 			"path": "."
 		}
-  ],
-  "settings": {
-  "restoreTerminals.terminals": [
-    {
-      "profile": "Git Bash",
-      "splitTerminals": [
-            {
-              "name": " Git Bash",
-              "commands": []
-            },
-            {
-              "name": "server",
-              "commands": [
-                "live-server"
-              ],
- 		         "shouldRunCommands": false
-            },
-            {
-              "name": "typescript",
-              "commands": [
-              " "
-              ],
- 		          "shouldRunCommands": false 
-            }
-          ]
-    }
-  ],
-  "cSpell.words": [
-  ]
-  }
+	],
+	"settings": {
+		"restoreTerminals.terminals": [
+			{
+				"profile": "Git Bash",
+				"splitTerminals": [
+					{
+						"name": " Git Bash",
+						"commands": []
+					},
+					{
+						"name": "server",
+						"commands": ["live-server"],
+						"shouldRunCommands": false
+					},
+					{
+						"name": "typescript",
+						"commands": [" "],
+						"shouldRunCommands": false
+					}
+				]
+			}
+		],
+		"cSpell.words": []
+	}
 }

@@ -1,22 +1,26 @@
 {
-  "name": "last-man-standing-mini-game",
-  "version": "1.0.0",
-  "description": "Last Man Standing App",
-  "main": "index.js",
-  "scripts": {
-    "dev": "yarn live-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theslantedroom/Last-Man-Standing-Mini-Game.git"
-  },
-  "author": "Steve Yee",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game/issues"
-  },
-  "homepage": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game#readme",
-  "dependencies": {
-    "live-server": "^1.2.1"
-  }
+	"name": "last-man-standing-mini-game",
+	"version": "1.0.0",
+	"description": "Last Man Standing App",
+	"main": "index.js",
+	"scripts": {
+		"dev": "yarn live-server",
+		"start": "yarn dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/theslantedroom/Last-Man-Standing-Mini-Game.git"
+	},
+	"author": "Steve Yee",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game/issues"
+	},
+	"homepage": "https://github.com/theslantedroom/Last-Man-Standing-Mini-Game#readme",
+	"dependencies": {
+		"live-server": "^1.2.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4"
+	}
 }
