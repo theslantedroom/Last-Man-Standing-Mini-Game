@@ -10,6 +10,7 @@ body {
 	height: 100vh;
 	margin: auto;
 	overflow: auto;
+	user-select: none;
 }
 
 #container {
@@ -815,6 +816,7 @@ button {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.75); /* Green glow effect */
 }
 
 .pixel:active,
@@ -822,7 +824,7 @@ button:active {
 	top: 2px;
 }
 button:hover {
-	box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.75); /* Green glow effect */
+	box-shadow: 0 0 15px 5px rgb(43, 255, 0); /* Green glow effect */
 }
 
 .pixel {
