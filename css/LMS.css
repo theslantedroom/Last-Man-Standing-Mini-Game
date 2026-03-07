@@ -63,7 +63,8 @@ body {
 #mainWindow {
   max-width: 1000px;
   width: 100%;
-  min-height: 85vh;
+  flex: 1;
+  min-height: 0;
   margin: 0 auto;
   position: relative;
   background-color: var(--bg-main);
@@ -74,7 +75,8 @@ body {
   line-height: 1.6;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 640px) {
@@ -88,7 +90,8 @@ body {
 #footer {
   width: 100%;
   max-width: 1000px;
-  padding: 12px 16px;
+  padding: 0 16px 12px 16px;
+  margin-top: 0;
   background: linear-gradient(to top, var(--bg-deep), var(--bg-main) 60%);
   display: flex;
   flex-wrap: wrap;
