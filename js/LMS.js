@@ -3954,7 +3954,7 @@ function start() {
 	console.log("start");
 	newEnemyApproaches(currentEnemyCard);
 	slideStart.style.display = "none";
-	slidePlayer1Turn.style.display = "block";
+	slidePlayer1Turn.style.display = "flex";
 }
 
 function highScoreUpdate() {
@@ -3982,7 +3982,7 @@ function tryAgain() {
 	slideLogSlideE.style.display = "none";
 	slideNextEnemy.style.display = "none";
 	slidePlayer1Turn.style.display = "none";
-	slideStart.style.display = "block";
+	slideStart.style.display = "flex";
 	tableDeathScore.innerHTML = deathCount;
 	tableKillScore.innerHTML = killCount;
 	gamesPlayed = gamesPlayed + 1;
@@ -3994,7 +3994,7 @@ function logSlide() {
 	console.log('logSlide close / open "enemyTurn"');
 	slideLogSlide.style.display = "none";
 	popUpHitEnemy.style.display = "none";
-	slideEnemy1Turn.style.display = "block";
+	slideEnemy1Turn.style.display = "flex";
 	playSound(roar);
 
 	enemy1Attack();
@@ -4003,7 +4003,7 @@ function logSlide() {
 function logSlideE() {
 	console.log('logSlideE close / open "player1Turn"');
 	slideLogSlideE.style.display = "none";
-	slidePlayer1Turn.style.display = "block";
+	slidePlayer1Turn.style.display = "flex";
 	popUpOuch.style.display = "none";
 }
 
@@ -4014,7 +4014,7 @@ function nextEnemy() {
 	popUpEnemy1Dead.style.display = "none";
 	slideKillLog.style.display = "none";
 	enemy1CharCard.style.display = "none";
-	slideNextEnemy.style.display = "block";
+	slideNextEnemy.style.display = "flex";
 
 	const winGold =
 		Math.round(currentEnemyCard / 10) +
@@ -4068,7 +4068,7 @@ function fightNext() {
 	}
 
 	newEnemyApproaches(currentEnemyCard);
-	slidePlayer1Turn.style.display = "block";
+	slidePlayer1Turn.style.display = "flex";
 	slideNextEnemy.style.display = "none";
 	battleFooter.style.display = "none";
 	closeWeek.style.display = "block";
@@ -4103,7 +4103,7 @@ function player1Dead() {
 	finalScorePopup.innerHTML = killCount;
 	tableDeathScore.innerHTML = deathCount;
 	slideLogSlideE.style.display = "none";
-	slidePlayer1Dead.style.display = "block";
+	slidePlayer1Dead.style.display = "flex";
 	console.log("player dead");
 }
 
@@ -4129,19 +4129,19 @@ function player1AttackRoll() {
 		attackRoll > enemyArray[currentEnemyCard].defense - player1.attack &&
 		attackRoll !== 20
 	) {
-		slidePlayer1Hit.style.display = "block";
+		slidePlayer1Hit.style.display = "flex";
 		player1DamageAttackRoll.innerHTML = `Attack total is ${attackRoll + player1.attack}  (${attackRoll} + ${player1.attack} skill)`;
 		playSound(hit);
 		// CRIT
 	} else if (attackRoll === 20) {
-		slidePlayer1Critical.style.display = "block";
+		slidePlayer1Critical.style.display = "flex";
 		playSound(crit);
 		//MISS
 	} else if (
 		attackRoll <=
 		enemyArray[currentEnemyCard].defense - player1.attack
 	) {
-		slideLogSlide.style.display = "block";
+		slideLogSlide.style.display = "flex";
 		logSlideResultLine2.innerHTML = "Miss";
 		logSlideResultLine3.innerHTML = "pathetic...";
 		playSound(miss);
@@ -4161,7 +4161,7 @@ function player1DamageRoll() {
 
 function player1Damage() {
 	slidePlayer1Hit.style.display = "none";
-	slideLogSlide.style.display = "block";
+	slideLogSlide.style.display = "flex";
 	Enemy1Ouch();
 	player1DamageRoll();
 	attackDamage =
@@ -4182,7 +4182,7 @@ function player1Damage() {
 	// Killed Enemy
 	if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slideLogSlide.style.display = "none";
-		slideKillLog.style.display = "block";
+		slideKillLog.style.display = "flex";
 		damageRollResultK.innerHTML = `A quick attack inflicts ${attackDamage} (weapons) + ${player1.damage} (bonus)`;
 		damageResultLine2K.innerHTML = "oh the Blood!!";
 		damageResultLine3K.innerHTML = `Sweet Victory!  ${attackDamage + player1.damage} damage kills the enemy`;
@@ -4194,7 +4194,7 @@ function player1Damage() {
 
 function player1Critical() {
 	slidePlayer1Critical.style.display = "none";
-	slideLogSlide.style.display = "block";
+	slideLogSlide.style.display = "flex";
 	Enemy1Ouch();
 	player1DamageRoll();
 	attackDamage =
@@ -4216,7 +4216,7 @@ function player1Critical() {
 	if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "none";
-		slideKillLog.style.display = "block";
+		slideKillLog.style.display = "flex";
 		damageRollResultK.innerHTML = "Your attack is impressive!";
 		damageResultLine2K.innerHTML = `GLORY! Critical hit <span style="color: red">DOUBLES</span> damage to ${attackDamage}, (+ ${player1.damage} bonus)`;
 		damageResultLine3K.innerHTML = `Your blow inflicts ${attackDamage + player1.damage} and <span style="color: red">kills</span> the enemy`;
@@ -4245,7 +4245,7 @@ function enemy1DamageRoll() {
 function enemyAttack() {
 	enemy1AttackDone(); //enemy card goes back to home position
 	slideEnemy1Turn.style.display = "none";
-	slideLogSlideE.style.display = "block";
+	slideLogSlideE.style.display = "flex";
 	attackRollE = Math.floor(Math.random() * 20 + 1);
 	// attackRollE = 20;
 	logSlideRollResultE.innerHTML = `Enemy attack roll is ${attackRollE} + ${enemyArray[currentEnemyCard].attack} (skill)`;
