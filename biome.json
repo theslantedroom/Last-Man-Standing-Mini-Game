@@ -1,40 +1,38 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.5/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
 		"useIgnoreFile": false
 	},
 	"files": {
-		"include": [],
-		"ignoreUnknown": false,
-		"ignore": [
-			"android/",
-			"ios/",
-			"dist/",
-			"/marketingImages",
-			"node_modules",
-			"test-results/",
-			"ignoredFolder/",
-			"playwright-report/",
-			"yarn.lock",
-			"package.json",
-			".vscode/",
-			".yarn/",
-			"out/"
-		]
+		"includes": [
+			"**",
+			"!**/android/",
+			"!**/ios/",
+			"!**/dist/",
+			"!**/marketingImages",
+			"!**/node_modules",
+			"!**/test-results/",
+			"!**/ignoredFolder/",
+			"!**/playwright-report/",
+			"!**/yarn.lock",
+			"!**/package.json",
+			"!**/.vscode/",
+			"!**/.yarn/",
+			"!**/out/"
+		],
+		"ignoreUnknown": false
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"organizeImports": {
-		"enabled": true
-	},
+	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true,
+			"preset": "recommended",
 			"style": {
 				"noUnusedTemplateLiteral": "off",
 				"useExponentiationOperator": "off",
