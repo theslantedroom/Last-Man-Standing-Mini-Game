@@ -112,12 +112,14 @@ h1 {
   color: var(--text-primary);
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 h2 {
   color: var(--text-secondary);
   font-size: clamp(1.25rem, 3.5vw, 1.6rem);
   margin: 0 0 6px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 h3 {
@@ -138,6 +140,7 @@ h4 {
   margin: 8px auto;
   max-width: 600px;
   font-size: clamp(1rem, 2.5vw, 1.35rem);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
 }
 
 h5 {
@@ -165,6 +168,7 @@ p {
   font-size: clamp(1rem, 2.5vw, 1.35rem);
   line-height: 1.5;
   user-select: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
 }
 
 p:last-child {
@@ -256,10 +260,48 @@ input {
   padding: 20px 16px 8px;
 }
 
+/* Game title — the hero element */
+#titleScreen > h1:first-of-type {
+  color: var(--accent-gold);
+  font-size: clamp(2.25rem, 8vw, 3.75rem);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  padding: 24px 16px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 24px rgba(212, 175, 55, 0.25);
+}
+
+/* "-The Dominator-" subtitle */
+#titleScreen > h2:first-of-type {
+  color: var(--text-muted);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  margin: 0 0 28px;
+}
+
+/* Flavor line — demoted below the title, not competing with it */
+#titleScreen > h1:last-of-type {
+  color: var(--text-primary);
+  font-size: clamp(1.2rem, 3.2vw, 1.6rem);
+  line-height: 1.4;
+  max-width: 34ch;
+  margin: 0 auto 28px;
+  padding: 0 16px;
+}
+
 .titleScreen ul {
   padding: 0;
   list-style: none;
-  margin: 12px 0;
+  margin: 0 auto 24px;
+  max-width: 320px;
+}
+
+.titleScreen ul p {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin: 4px 0;
+  opacity: 0.85;
 }
 
 .titleScreen li {
@@ -296,6 +338,7 @@ input {
   min-height: 100%;
   z-index: 1;
   display: none;
+  box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.75);
 }
 
 #completeChar {
@@ -306,55 +349,93 @@ input {
   margin-top: 0;
 }
 
+/* Name-entry lore panel */
+#nameConfirm {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  background: linear-gradient(160deg, rgba(37, 32, 25, 0.85), rgba(15, 13, 11, 0.85));
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md), inset 0 0 0 1px rgba(212, 175, 125, 0.06);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
 #chooseCharacter {
-  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  width: 100%;
   display: none;
 }
 
 #chooseCharacterWindow {
   display: none;
-  min-height: 100px;
+  position: relative;
+  min-height: 120px;
+  padding: 4px 0 28px;
 }
 
+/* "Choose a Character" heading */
+#chooseCharacterWindow h5 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin: 0 auto 14px;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+/* Carousel arrows flanking the card */
 #player1PreviousCharacter,
 #player1NextCharacter {
-  width: clamp(40px, 8vw, 56px);
-  height: clamp(40px, 8vw, 56px);
+  position: absolute;
+  top: 56%;
+  width: clamp(46px, 11vw, 72px);
+  height: clamp(46px, 11vw, 72px);
   min-width: var(--touch-min);
   min-height: var(--touch-min);
   cursor: pointer;
-  display: inline-block;
   background-image: url(../img/arrow.png);
-  background-size: contain;
+  background-size: 58%;
   background-repeat: no-repeat;
   background-position: center;
-  filter: brightness(0) saturate(100%) invert(72%) sepia(30%) saturate(800%) hue-rotate(5deg) brightness(95%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(72%) sepia(30%) saturate(800%) hue-rotate(5deg) brightness(95%) contrast(90%)
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
   transition: transform var(--transition), filter var(--transition);
+  z-index: 3;
 }
 
 #player1PreviousCharacter {
-  margin-right: 16px;
+  left: max(6px, 5%);
+  transform: translateY(-50%);
 }
 
 #player1NextCharacter {
-  margin-left: 16px;
-  transform: rotate(180deg);
+  right: max(6px, 5%);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 #player1PreviousCharacter:hover,
 #player1NextCharacter:hover {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(30%) saturate(800%) hue-rotate(5deg) brightness(105%) contrast(95%);
-}
-
-#player1NextCharacter:hover {
-  transform: rotate(180deg) scale(1.05);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(1200%) hue-rotate(5deg) brightness(112%) contrast(95%)
+    drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
 }
 
 #player1PreviousCharacter:hover {
-  transform: scale(1.05);
+  transform: translateY(-50%) scale(1.15);
+}
+
+#player1NextCharacter:hover {
+  transform: translateY(-50%) rotate(180deg) scale(1.15);
+}
+
+#player1PreviousCharacter:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+#player1NextCharacter:active {
+  transform: translateY(-50%) rotate(180deg) scale(0.94);
 }
 
 /* Character cards */
@@ -367,6 +448,39 @@ input {
   position: relative;
   background-size: contain;
   margin: 0 auto;
+}
+
+/* Pedestal glow + gentle float, only on the selection screen */
+#chooseCharacterWindow #player1CharCard {
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.6));
+  animation: cardFloat 4.5s ease-in-out infinite;
+  transition: filter 0.18s ease;
+}
+
+/* Brief flash when swapping character */
+#chooseCharacterWindow #player1CharCard.swapping {
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.6)) brightness(1.5) saturate(1.2);
+  transition: filter 0.06s ease;
+}
+
+#chooseCharacterWindow #player1CharCard::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0) 68%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #chooseCharacterWindow #player1CharCard {
+    animation: none;
+  }
 }
 
 .hpbar {
@@ -469,6 +583,14 @@ input {
 
 #marketCharShift {
   position: relative;
+  max-width: 620px;
+  margin: 18px auto 0;
+}
+
+#discardText {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 12px auto;
 }
 
 /* Market */
@@ -480,13 +602,86 @@ input {
   background-position: center;
   text-align: center;
   display: none;
-  justify-content: center;
-  align-items: flex-start;
   z-index: 1;
   margin: 0;
   width: 100%;
   min-height: 100%;
-  padding: 16px 12px 24px;
+  padding: 16px 12px 28px;
+  box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.75);
+}
+
+/* Market header */
+#market > div:first-child {
+  max-width: 720px;
+  margin: 0 auto 16px;
+}
+
+#market h1 {
+  margin-bottom: 12px;
+  color: var(--accent-gold);
+  font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+}
+
+/* Category tab bar */
+#market .centerSpill {
+  gap: 4px;
+  padding: 5px;
+  margin: 0 auto 12px;
+  max-width: 660px;
+  background: rgba(15, 13, 11, 0.55);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+}
+
+#market .centerSpill button {
+  margin: 0;
+  padding: 8px 16px;
+  min-height: 40px;
+  min-width: 0;
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+#market .centerSpill button:hover {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--border-accent);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Quest / flavor line */
+#welcomeMarket {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 6px auto 10px;
+  max-width: 560px;
+}
+
+/* Gold badge */
+#market h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px auto 4px;
+  padding: 6px 18px;
+  font-size: clamp(1.05rem, 2.8vw, 1.3rem);
+  color: var(--accent-gold);
+  background: rgba(15, 13, 11, 0.55);
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+}
+
+#market h2 #player1Gold {
+  color: var(--text-primary);
+  font-weight: bold;
 }
 
 #marketItems {
@@ -495,29 +690,24 @@ input {
   width: 100%;
 }
 
-#market h1 {
-  margin-bottom: 8px;
-  color: var(--accent-gold);
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
-#market h2 {
-  margin: 8px 0 16px;
-  font-size: clamp(1.1rem, 3vw, 1.35rem);
-}
-
+/* Store gallery — one category shown at a time */
 .storeItems {
   justify-content: center;
-  display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 16px;
+  background: rgba(15, 13, 11, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 #storeImages img {
-  position: relative;
-  margin: 4px;
-  width: 39%;
-  max-width: 90px;
+  margin: 0;
+  width: clamp(72px, 26%, 100px);
   height: auto;
   cursor: pointer;
   border: 2px solid var(--border-subtle);
@@ -529,14 +719,7 @@ input {
 #storeImages img:hover {
   border-color: var(--accent-gold);
   box-shadow: 0 0 12px rgba(212, 175, 125, 0.35);
-  transform: scale(1.02);
-}
-
-@media (max-width: 480px) {
-  #storeImages img {
-    width: 42%;
-    max-width: none;
-  }
+  transform: translateY(-3px) scale(1.03);
 }
 
 /* Confirm buy / discard modals */
@@ -1076,23 +1259,8 @@ button:active {
   color: var(--accent-gold) !important;
 }
 
-/* Float layout helpers (market columns) */
+/* Float layout helpers (market columns) — flattened into one gallery */
 .floatLeft,
 .floatRight {
-  display: inline-block;
-  vertical-align: top;
-}
-
-@media (max-width: 640px) {
-  .floatLeft,
-  .floatRight {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-
-  .centerSpill button {
-    flex: 1 1 140px;
-    min-width: 120px;
-  }
+  display: contents;
 }

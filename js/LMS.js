@@ -683,6 +683,12 @@ const battleFooter = document.getElementById("battleFooter");
 const welcomeMarket = document.getElementById("welcomeMarket");
 
 // cycle character cards
+// quick flash on the card when swapping character
+function flashCharCard() {
+	player1CharCard.classList.add("swapping");
+	setTimeout(() => player1CharCard.classList.remove("swapping"), 70);
+}
+
 function player1previousCharacter() {
 	player1.currentCharCard -= 1;
 	playSound(changeCharacterSound);
@@ -691,6 +697,7 @@ function player1previousCharacter() {
 	}
 	console.log(`player1.currentCharCard ${player1.currentCharCard}`);
 	player1CharCard.style.backgroundImage = `url('img/charCard${player1.currentCharCard}.jpg')`;
+	flashCharCard();
 }
 
 function player1NextCharacter() {
@@ -701,6 +708,7 @@ function player1NextCharacter() {
 	}
 	console.log(`player1.currentCharCard ${player1.currentCharCard}`);
 	player1CharCard.style.backgroundImage = `url('img/charCard${player1.currentCharCard}.jpg')`;
+	flashCharCard();
 }
 
 // Music Handler

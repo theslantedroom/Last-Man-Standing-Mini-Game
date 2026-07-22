@@ -10,7 +10,7 @@
         {
           "name": "server",
           "commands": [
-            "yarn dev"
+            "yarn live-server"
           ]
         },
         {

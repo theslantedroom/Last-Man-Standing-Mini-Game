@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "yarn live-server",
-    "check-versions": "npx npm-check-updates -p yarn",
+		"check-versions": "npx npm-check-updates -p yarn",
 		"start": "yarn dev"
 	},
 	"repository": {
